@@ -7,23 +7,37 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		26D7880A9379A175353E71C6 /* Pods_BRIDGE_Driver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CE11723CEBDDDD1931C1C2A /* Pods_BRIDGE_Driver.framework */; };
 		4F12192B210F7B0100BE0BD4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F12192A210F7B0100BE0BD4 /* AppDelegate.swift */; };
-		4F12192D210F7B0100BE0BD4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F12192C210F7B0100BE0BD4 /* ViewController.swift */; };
 		4F121930210F7B0100BE0BD4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F12192E210F7B0100BE0BD4 /* Main.storyboard */; };
 		4F121933210F7B0100BE0BD4 /* BRIDGE_Driver.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4F121931210F7B0100BE0BD4 /* BRIDGE_Driver.xcdatamodeld */; };
 		4F121935210F7B0400BE0BD4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F121934210F7B0400BE0BD4 /* Assets.xcassets */; };
 		4F121938210F7B0400BE0BD4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F121936210F7B0400BE0BD4 /* LaunchScreen.storyboard */; };
+		4F121943210F8B3400BE0BD4 /* Startup in Resources */ = {isa = PBXBuildFile; fileRef = 4F12193F210F8B3300BE0BD4 /* Startup */; };
+		4F121944210F8B3400BE0BD4 /* GPX Files in Resources */ = {isa = PBXBuildFile; fileRef = 4F121940210F8B3400BE0BD4 /* GPX Files */; };
+		4F121945210F8B3400BE0BD4 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F121941210F8B3400BE0BD4 /* WelcomeViewController.swift */; };
+		4F121946210F8B3400BE0BD4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F121942210F8B3400BE0BD4 /* ViewController.swift */; };
+		4F121948210F952A00BE0BD4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4F121947210F952900BE0BD4 /* GoogleService-Info.plist */; };
+		4F12194A210F957500BE0BD4 /* Initialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F121949210F957500BE0BD4 /* Initialization.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		05B72B315184D7AF5A483612 /* Pods-BRIDGE-Driver.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BRIDGE-Driver.release.xcconfig"; path = "Pods/Target Support Files/Pods-BRIDGE-Driver/Pods-BRIDGE-Driver.release.xcconfig"; sourceTree = "<group>"; };
+		0CE11723CEBDDDD1931C1C2A /* Pods_BRIDGE_Driver.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BRIDGE_Driver.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F121927210F7B0100BE0BD4 /* BRIDGE-Driver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BRIDGE-Driver.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F12192A210F7B0100BE0BD4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4F12192C210F7B0100BE0BD4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4F12192F210F7B0100BE0BD4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4F121932210F7B0100BE0BD4 /* BRIDGE_Driver.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BRIDGE_Driver.xcdatamodel; sourceTree = "<group>"; };
 		4F121934210F7B0400BE0BD4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4F121937210F7B0400BE0BD4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4F121939210F7B0400BE0BD4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4F12193F210F8B3300BE0BD4 /* Startup */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Startup; sourceTree = "<group>"; };
+		4F121940210F8B3400BE0BD4 /* GPX Files */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "GPX Files"; sourceTree = "<group>"; };
+		4F121941210F8B3400BE0BD4 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		4F121942210F8B3400BE0BD4 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4F121947210F952900BE0BD4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		4F121949210F957500BE0BD4 /* Initialization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Initialization.swift; sourceTree = "<group>"; };
+		82B8781CE4C24408E5C9E78C /* Pods-BRIDGE-Driver.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BRIDGE-Driver.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BRIDGE-Driver/Pods-BRIDGE-Driver.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +45,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26D7880A9379A175353E71C6 /* Pods_BRIDGE_Driver.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		141C1CDA16126A6ACD01F348 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				82B8781CE4C24408E5C9E78C /* Pods-BRIDGE-Driver.debug.xcconfig */,
+				05B72B315184D7AF5A483612 /* Pods-BRIDGE-Driver.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		4F12191E210F7B0100BE0BD4 = {
 			isa = PBXGroup;
 			children = (
 				4F121929210F7B0100BE0BD4 /* BRIDGE-Driver */,
 				4F121928210F7B0100BE0BD4 /* Products */,
+				141C1CDA16126A6ACD01F348 /* Pods */,
+				F855C9CB9B3F5421A7122E82 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +82,28 @@
 		4F121929210F7B0100BE0BD4 /* BRIDGE-Driver */ = {
 			isa = PBXGroup;
 			children = (
+				4F121949210F957500BE0BD4 /* Initialization.swift */,
 				4F12192A210F7B0100BE0BD4 /* AppDelegate.swift */,
-				4F12192C210F7B0100BE0BD4 /* ViewController.swift */,
+				4F12193F210F8B3300BE0BD4 /* Startup */,
+				4F121942210F8B3400BE0BD4 /* ViewController.swift */,
+				4F121941210F8B3400BE0BD4 /* WelcomeViewController.swift */,
 				4F12192E210F7B0100BE0BD4 /* Main.storyboard */,
 				4F121934210F7B0400BE0BD4 /* Assets.xcassets */,
 				4F121936210F7B0400BE0BD4 /* LaunchScreen.storyboard */,
+				4F121940210F8B3400BE0BD4 /* GPX Files */,
 				4F121939210F7B0400BE0BD4 /* Info.plist */,
+				4F121947210F952900BE0BD4 /* GoogleService-Info.plist */,
 				4F121931210F7B0100BE0BD4 /* BRIDGE_Driver.xcdatamodeld */,
 			);
 			path = "BRIDGE-Driver";
+			sourceTree = "<group>";
+		};
+		F855C9CB9B3F5421A7122E82 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0CE11723CEBDDDD1931C1C2A /* Pods_BRIDGE_Driver.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +113,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4F12193C210F7B0400BE0BD4 /* Build configuration list for PBXNativeTarget "BRIDGE-Driver" */;
 			buildPhases = (
+				807DE978A5DBD93EAF498E0D /* [CP] Check Pods Manifest.lock */,
 				4F121923210F7B0100BE0BD4 /* Sources */,
 				4F121924210F7B0100BE0BD4 /* Frameworks */,
 				4F121925210F7B0100BE0BD4 /* Resources */,
+				8393BA3D554170E8462DEAD2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -125,21 +166,73 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F121944210F8B3400BE0BD4 /* GPX Files in Resources */,
 				4F121938210F7B0400BE0BD4 /* LaunchScreen.storyboard in Resources */,
 				4F121935210F7B0400BE0BD4 /* Assets.xcassets in Resources */,
+				4F121943210F8B3400BE0BD4 /* Startup in Resources */,
 				4F121930210F7B0100BE0BD4 /* Main.storyboard in Resources */,
+				4F121948210F952A00BE0BD4 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		807DE978A5DBD93EAF498E0D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BRIDGE-Driver-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8393BA3D554170E8462DEAD2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-BRIDGE-Driver/Pods-BRIDGE-Driver-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/PhoneNumberKit/PhoneNumberKit.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PhoneNumberKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BRIDGE-Driver/Pods-BRIDGE-Driver-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4F121923210F7B0100BE0BD4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F121945210F8B3400BE0BD4 /* WelcomeViewController.swift in Sources */,
 				4F121933210F7B0100BE0BD4 /* BRIDGE_Driver.xcdatamodeld in Sources */,
-				4F12192D210F7B0100BE0BD4 /* ViewController.swift in Sources */,
+				4F121946210F8B3400BE0BD4 /* ViewController.swift in Sources */,
+				4F12194A210F957500BE0BD4 /* Initialization.swift in Sources */,
 				4F12192B210F7B0100BE0BD4 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -282,6 +375,7 @@
 		};
 		4F12193D210F7B0400BE0BD4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 82B8781CE4C24408E5C9E78C /* Pods-BRIDGE-Driver.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -300,6 +394,7 @@
 		};
 		4F12193E210F7B0400BE0BD4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 05B72B315184D7AF5A483612 /* Pods-BRIDGE-Driver.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
