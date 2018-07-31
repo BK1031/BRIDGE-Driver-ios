@@ -13,12 +13,16 @@
 		4F121933210F7B0100BE0BD4 /* BRIDGE_Driver.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4F121931210F7B0100BE0BD4 /* BRIDGE_Driver.xcdatamodeld */; };
 		4F121935210F7B0400BE0BD4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F121934210F7B0400BE0BD4 /* Assets.xcassets */; };
 		4F121938210F7B0400BE0BD4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F121936210F7B0400BE0BD4 /* LaunchScreen.storyboard */; };
-		4F121943210F8B3400BE0BD4 /* Startup in Resources */ = {isa = PBXBuildFile; fileRef = 4F12193F210F8B3300BE0BD4 /* Startup */; };
-		4F121944210F8B3400BE0BD4 /* GPX Files in Resources */ = {isa = PBXBuildFile; fileRef = 4F121940210F8B3400BE0BD4 /* GPX Files */; };
 		4F121945210F8B3400BE0BD4 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F121941210F8B3400BE0BD4 /* WelcomeViewController.swift */; };
 		4F121946210F8B3400BE0BD4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F121942210F8B3400BE0BD4 /* ViewController.swift */; };
 		4F121948210F952A00BE0BD4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4F121947210F952900BE0BD4 /* GoogleService-Info.plist */; };
-		4F12194A210F957500BE0BD4 /* Initialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F121949210F957500BE0BD4 /* Initialization.swift */; };
+		4F12194E210FA3B000BE0BD4 /* ConnectionErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F12194B210FA3B000BE0BD4 /* ConnectionErrorViewController.swift */; };
+		4F12194F210FA3B000BE0BD4 /* CheckUserLoggedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F12194C210FA3B000BE0BD4 /* CheckUserLoggedViewController.swift */; };
+		4F121950210FA3B000BE0BD4 /* ConnectionCheckerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F12194D210FA3B000BE0BD4 /* ConnectionCheckerViewController.swift */; };
+		4F121959210FB7CE00BE0BD4 /* Initialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F121958210FB7CE00BE0BD4 /* Initialization.swift */; };
+		4F12195C210FE1B900BE0BD4 /* DriverNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F12195A210FE1B800BE0BD4 /* DriverNavViewController.swift */; };
+		4F12195D210FE1B900BE0BD4 /* DriverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F12195B210FE1B900BE0BD4 /* DriverViewController.swift */; };
+		4F12195F210FE1DB00BE0BD4 /* RideRequestsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F12195E210FE1DB00BE0BD4 /* RideRequestsTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,12 +35,21 @@
 		4F121934210F7B0400BE0BD4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4F121937210F7B0400BE0BD4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4F121939210F7B0400BE0BD4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4F12193F210F8B3300BE0BD4 /* Startup */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Startup; sourceTree = "<group>"; };
-		4F121940210F8B3400BE0BD4 /* GPX Files */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "GPX Files"; sourceTree = "<group>"; };
 		4F121941210F8B3400BE0BD4 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		4F121942210F8B3400BE0BD4 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4F121947210F952900BE0BD4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		4F121949210F957500BE0BD4 /* Initialization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Initialization.swift; sourceTree = "<group>"; };
+		4F12194B210FA3B000BE0BD4 /* ConnectionErrorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionErrorViewController.swift; sourceTree = "<group>"; };
+		4F12194C210FA3B000BE0BD4 /* CheckUserLoggedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckUserLoggedViewController.swift; sourceTree = "<group>"; };
+		4F12194D210FA3B000BE0BD4 /* ConnectionCheckerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionCheckerViewController.swift; sourceTree = "<group>"; };
+		4F121951210FA3BD00BE0BD4 /* BridgeDemoRouteDropOff.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = BridgeDemoRouteDropOff.gpx; sourceTree = "<group>"; };
+		4F121952210FA3BD00BE0BD4 /* BridgeDemoRoutePickup.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = BridgeDemoRoutePickup.gpx; sourceTree = "<group>"; };
+		4F121953210FA3BE00BE0BD4 /* BridgeDemoDriverStart.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = BridgeDemoDriverStart.gpx; sourceTree = "<group>"; };
+		4F121954210FA3BE00BE0BD4 /* BridgeDemoDropLocation.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = BridgeDemoDropLocation.gpx; sourceTree = "<group>"; };
+		4F121955210FA3BE00BE0BD4 /* BridgeDemoRiderLocation.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = BridgeDemoRiderLocation.gpx; sourceTree = "<group>"; };
+		4F121958210FB7CE00BE0BD4 /* Initialization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Initialization.swift; sourceTree = "<group>"; };
+		4F12195A210FE1B800BE0BD4 /* DriverNavViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverNavViewController.swift; sourceTree = "<group>"; };
+		4F12195B210FE1B900BE0BD4 /* DriverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverViewController.swift; sourceTree = "<group>"; };
+		4F12195E210FE1DB00BE0BD4 /* RideRequestsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RideRequestsTableViewCell.swift; sourceTree = "<group>"; };
 		82B8781CE4C24408E5C9E78C /* Pods-BRIDGE-Driver.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BRIDGE-Driver.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BRIDGE-Driver/Pods-BRIDGE-Driver.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -82,20 +95,53 @@
 		4F121929210F7B0100BE0BD4 /* BRIDGE-Driver */ = {
 			isa = PBXGroup;
 			children = (
-				4F121949210F957500BE0BD4 /* Initialization.swift */,
+				4F121958210FB7CE00BE0BD4 /* Initialization.swift */,
 				4F12192A210F7B0100BE0BD4 /* AppDelegate.swift */,
-				4F12193F210F8B3300BE0BD4 /* Startup */,
+				4F121956210FB78200BE0BD4 /* Startup */,
 				4F121942210F8B3400BE0BD4 /* ViewController.swift */,
 				4F121941210F8B3400BE0BD4 /* WelcomeViewController.swift */,
+				4F121960210FE1FA00BE0BD4 /* Driver */,
 				4F12192E210F7B0100BE0BD4 /* Main.storyboard */,
 				4F121934210F7B0400BE0BD4 /* Assets.xcassets */,
 				4F121936210F7B0400BE0BD4 /* LaunchScreen.storyboard */,
-				4F121940210F8B3400BE0BD4 /* GPX Files */,
+				4F121957210FB79600BE0BD4 /* GPX Files */,
 				4F121939210F7B0400BE0BD4 /* Info.plist */,
 				4F121947210F952900BE0BD4 /* GoogleService-Info.plist */,
 				4F121931210F7B0100BE0BD4 /* BRIDGE_Driver.xcdatamodeld */,
 			);
 			path = "BRIDGE-Driver";
+			sourceTree = "<group>";
+		};
+		4F121956210FB78200BE0BD4 /* Startup */ = {
+			isa = PBXGroup;
+			children = (
+				4F12194C210FA3B000BE0BD4 /* CheckUserLoggedViewController.swift */,
+				4F12194D210FA3B000BE0BD4 /* ConnectionCheckerViewController.swift */,
+				4F12194B210FA3B000BE0BD4 /* ConnectionErrorViewController.swift */,
+			);
+			path = Startup;
+			sourceTree = "<group>";
+		};
+		4F121957210FB79600BE0BD4 /* GPX Files */ = {
+			isa = PBXGroup;
+			children = (
+				4F121953210FA3BE00BE0BD4 /* BridgeDemoDriverStart.gpx */,
+				4F121954210FA3BE00BE0BD4 /* BridgeDemoDropLocation.gpx */,
+				4F121955210FA3BE00BE0BD4 /* BridgeDemoRiderLocation.gpx */,
+				4F121951210FA3BD00BE0BD4 /* BridgeDemoRouteDropOff.gpx */,
+				4F121952210FA3BD00BE0BD4 /* BridgeDemoRoutePickup.gpx */,
+			);
+			path = "GPX Files";
+			sourceTree = "<group>";
+		};
+		4F121960210FE1FA00BE0BD4 /* Driver */ = {
+			isa = PBXGroup;
+			children = (
+				4F12195A210FE1B800BE0BD4 /* DriverNavViewController.swift */,
+				4F12195B210FE1B900BE0BD4 /* DriverViewController.swift */,
+				4F12195E210FE1DB00BE0BD4 /* RideRequestsTableViewCell.swift */,
+			);
+			path = Driver;
 			sourceTree = "<group>";
 		};
 		F855C9CB9B3F5421A7122E82 /* Frameworks */ = {
@@ -166,10 +212,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4F121944210F8B3400BE0BD4 /* GPX Files in Resources */,
 				4F121938210F7B0400BE0BD4 /* LaunchScreen.storyboard in Resources */,
 				4F121935210F7B0400BE0BD4 /* Assets.xcassets in Resources */,
-				4F121943210F8B3400BE0BD4 /* Startup in Resources */,
 				4F121930210F7B0100BE0BD4 /* Main.storyboard in Resources */,
 				4F121948210F952A00BE0BD4 /* GoogleService-Info.plist in Resources */,
 			);
@@ -230,10 +274,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				4F121945210F8B3400BE0BD4 /* WelcomeViewController.swift in Sources */,
+				4F12194E210FA3B000BE0BD4 /* ConnectionErrorViewController.swift in Sources */,
+				4F12194F210FA3B000BE0BD4 /* CheckUserLoggedViewController.swift in Sources */,
 				4F121933210F7B0100BE0BD4 /* BRIDGE_Driver.xcdatamodeld in Sources */,
+				4F12195F210FE1DB00BE0BD4 /* RideRequestsTableViewCell.swift in Sources */,
+				4F12195C210FE1B900BE0BD4 /* DriverNavViewController.swift in Sources */,
+				4F121950210FA3B000BE0BD4 /* ConnectionCheckerViewController.swift in Sources */,
+				4F12195D210FE1B900BE0BD4 /* DriverViewController.swift in Sources */,
 				4F121946210F8B3400BE0BD4 /* ViewController.swift in Sources */,
-				4F12194A210F957500BE0BD4 /* Initialization.swift in Sources */,
 				4F12192B210F7B0100BE0BD4 /* AppDelegate.swift in Sources */,
+				4F121959210FB7CE00BE0BD4 /* Initialization.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

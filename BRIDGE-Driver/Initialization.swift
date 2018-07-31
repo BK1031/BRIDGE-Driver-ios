@@ -31,6 +31,12 @@ var homeLong = 0.0
 
 var accountBalance = 0.0
 
+var myRiderName = ""
+var myRiderID = ""
+var myRiderLat = 0.0
+var myRiderLong = 0.0
+var myRiderDest = ""
+
 var school = ""
 var schoolLat = 0.0
 var schoolLong = 0.0

@@ -40,8 +40,6 @@ class WelcomeViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     @IBOutlet weak var zipTextField: UITextField!
     @IBOutlet weak var schoolsPickerHeight: NSLayoutConstraint!
     @IBOutlet weak var schoolsPciker: UIPickerView!
-    @IBOutlet weak var studentText: UILabel!
-    @IBOutlet weak var studentSwitch: UISwitch!
     
     @IBOutlet weak var loginViewHeight: NSLayoutConstraint!
     @IBOutlet weak var loginView: UIView!
@@ -175,7 +173,7 @@ class WelcomeViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             self.schoolsPickerHeight.constant = 125
             self.view.layoutIfNeeded()
         }) { (finished) in
-            self.studentText.text = "I am a student at \(school)"
+            //Execute code once done
         }
     }
     
@@ -208,8 +206,8 @@ class WelcomeViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
                 if let user = user {
                     userID = user.uid
                 }
-                let usersReference = self.ref?.child("users").child(userID)
-                let values = ["name": name, "email": email, "address": addressFull, "accountBalance": accountBalance, "phone": phone, "school": school, "homeLat": homeLat, "homeLong": homeLong, "isStudent": isStudent] as [String : Any]
+                let usersReference = self.ref?.child("drivers").child(userID)
+                let values = ["name": name, "email": email, "address": addressFull, "accountBalance": accountBalance, "phone": phone, "school": school, "homeLat": homeLat, "homeLong": homeLong] as [String : Any]
                 usersReference?.updateChildValues(values)
                 
                 self.performSegue(withIdentifier: "getStarted", sender: self)
@@ -222,15 +220,6 @@ class WelcomeViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             }
         }
         
-    }
-    
-    @IBAction func student(_ sender: Any) {
-        if studentSwitch.isOn {
-            isStudent = true
-        }
-        else {
-            isStudent = false
-        }
     }
     
     @IBAction func login(_ sender: UIButton) {
@@ -263,7 +252,7 @@ class WelcomeViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
                 }
                 
                 //Extract User Info form Firebase Here
-                Database.database().reference().child("users").child(userID).observeSingleEvent(of: .value, with: { (snapshot) in
+                Database.database().reference().child("drivers").child(userID).observeSingleEvent(of: .value, with: { (snapshot) in
                     if let userData = snapshot.value as? [String: AnyObject] {
                         name = userData["name"] as! String
                         phone = userData["phone"] as! String
@@ -271,7 +260,6 @@ class WelcomeViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
                         homeLat = userData["homeLat"] as! Double
                         homeLong = userData["homeLong"] as! Double
                         accountBalance = userData["accountBalance"] as! Double
-                        isStudent = userData["isStudent"] as! Bool
                     }
                 })
                 self.performSegue(withIdentifier: "getStarted", sender: self)

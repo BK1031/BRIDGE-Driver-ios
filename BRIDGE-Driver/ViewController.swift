@@ -49,5 +49,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         mapView.showsUserLocation = true
     }
     
+    @IBAction func drive(_ sender: Any) {
+        self.performSegue(withIdentifier: "drive", sender: self)
+    }
+    
 }
 
