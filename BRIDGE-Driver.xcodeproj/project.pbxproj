@@ -23,6 +23,7 @@
 		4F12195C210FE1B900BE0BD4 /* DriverNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F12195A210FE1B800BE0BD4 /* DriverNavViewController.swift */; };
 		4F12195D210FE1B900BE0BD4 /* DriverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F12195B210FE1B900BE0BD4 /* DriverViewController.swift */; };
 		4F12195F210FE1DB00BE0BD4 /* RideRequestsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F12195E210FE1DB00BE0BD4 /* RideRequestsTableViewCell.swift */; };
+		4F1B30092110CDFF004EF617 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1B30082110CDFE004EF617 /* AccountViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		4F12195A210FE1B800BE0BD4 /* DriverNavViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverNavViewController.swift; sourceTree = "<group>"; };
 		4F12195B210FE1B900BE0BD4 /* DriverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverViewController.swift; sourceTree = "<group>"; };
 		4F12195E210FE1DB00BE0BD4 /* RideRequestsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RideRequestsTableViewCell.swift; sourceTree = "<group>"; };
+		4F1B30082110CDFE004EF617 /* AccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		82B8781CE4C24408E5C9E78C /* Pods-BRIDGE-Driver.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BRIDGE-Driver.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BRIDGE-Driver/Pods-BRIDGE-Driver.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -101,6 +103,7 @@
 				4F121942210F8B3400BE0BD4 /* ViewController.swift */,
 				4F121941210F8B3400BE0BD4 /* WelcomeViewController.swift */,
 				4F121960210FE1FA00BE0BD4 /* Driver */,
+				4F1B30082110CDFE004EF617 /* AccountViewController.swift */,
 				4F12192E210F7B0100BE0BD4 /* Main.storyboard */,
 				4F121934210F7B0400BE0BD4 /* Assets.xcassets */,
 				4F121936210F7B0400BE0BD4 /* LaunchScreen.storyboard */,
@@ -275,6 +278,7 @@
 			files = (
 				4F121945210F8B3400BE0BD4 /* WelcomeViewController.swift in Sources */,
 				4F12194E210FA3B000BE0BD4 /* ConnectionErrorViewController.swift in Sources */,
+				4F1B30092110CDFF004EF617 /* AccountViewController.swift in Sources */,
 				4F12194F210FA3B000BE0BD4 /* CheckUserLoggedViewController.swift in Sources */,
 				4F121933210F7B0100BE0BD4 /* BRIDGE_Driver.xcdatamodeld in Sources */,
 				4F12195F210FE1DB00BE0BD4 /* RideRequestsTableViewCell.swift in Sources */,

@@ -19,6 +19,8 @@ var phone = ""
 var userID = ""
 var isStudent = false
 var profilePic: UIImage = #imageLiteral(resourceName: "profile")
+var driverStatus = ""
+var kidName = ""
 
 var addressLine1 = ""
 var addressCity = ""
