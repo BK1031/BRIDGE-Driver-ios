@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Rin-PZ-qgT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.3.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Rin-PZ-qgT">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -21,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BRIDGE Driver Icon" translatesAutoresizingMaskIntoConstraints="NO" id="0I2-ap-DkM">
-                                <rect key="frame" x="112" y="30" width="150" height="150"/>
+                                <rect key="frame" x="112.5" y="30" width="150" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="qdZ-aN-gBe"/>
                                     <constraint firstAttribute="width" constant="150" id="rCH-5z-JTe"/>
@@ -93,7 +91,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3zY-yT-zzo">
-                                        <rect key="frame" x="112" y="272" width="150" height="30"/>
+                                        <rect key="frame" x="112.5" y="272" width="150" height="30"/>
                                         <state key="normal" title="Terms and Conditions"/>
                                     </button>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Atv-Fq-gjH">
@@ -491,6 +489,9 @@ Troubleshooting Tips:
                                     <constraint firstAttribute="width" constant="50" id="vyv-IT-5nf"/>
                                 </constraints>
                                 <state key="normal" image="profile"/>
+                                <connections>
+                                    <action selector="showAccount:" destination="A0m-HJ-3SX" eventType="touchUpInside" id="Dhj-n0-mR0"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -666,7 +667,7 @@ Troubleshooting Tips:
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </mapView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="iUb-ze-rwD">
-                                <rect key="frame" x="0.0" y="99" width="375" height="567.5"/>
+                                <rect key="frame" x="0.0" y="99" width="375" height="568"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="customCell" rowHeight="100" id="1xY-5V-05D" customClass="RideRequestsTableViewCell" customModule="BRIDGE_Driver" customModuleProvider="target">
@@ -837,11 +838,28 @@ Troubleshooting Tips:
                         <outlet property="directionsView" destination="Qdg-dj-su1" id="BHZ-zr-wiq"/>
                         <outlet property="mapView" destination="2NC-bx-UYc" id="aeJ-vX-Rmb"/>
                         <outlet property="navigationLabel" destination="P1O-Ix-F4Y" id="5Ys-rZ-LFT"/>
+                        <segue destination="hPb-gb-gHZ" kind="presentation" identifier="toMapsNav" modalTransitionStyle="crossDissolve" id="u12-24-f6j"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IhI-m3-Snk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2871" y="-67"/>
+        </scene>
+        <!--BRIDGE-->
+        <scene sceneID="M3I-fy-jHQ">
+            <objects>
+                <viewController id="0Nv-O5-Dtf" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="H0Z-Pp-Lme">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="y7I-ga-srJ"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="BRIDGE" id="0IU-tT-Eev"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AUe-Jy-WMv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5210" y="-67"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="xOx-X0-I3P">
@@ -1112,6 +1130,43 @@ Troubleshooting Tips:
             </objects>
             <point key="canvasLocation" x="2870" y="725"/>
         </scene>
+        <!--Maps Nav View Controller-->
+        <scene sceneID="sLQ-Ej-HKb">
+            <objects>
+                <viewController id="hPb-gb-gHZ" customClass="MapsNavViewController" customModule="BRIDGE_Driver" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="syj-Ny-HR7">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="90H-qY-XZu"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qmU-vd-iUg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3646" y="-67"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="5VJ-D0-mZy">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="L96-rc-Lzb" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="8pu-3R-71w">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="GurmukhiMN-Bold" family="Gurmukhi MN" pointSize="25"/>
+                            <color key="textColor" red="0.99607843139999996" green="0.8365689516" blue="0.28481131790000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="0Nv-O5-Dtf" kind="relationship" relationship="rootViewController" id="FkU-wE-SKB"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="I9A-ts-HUv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4428" y="-67"/>
+        </scene>
     </scenes>
     <resources>
         <image name="BRIDGE Driver Icon" width="1024" height="1024"/>
@@ -1120,8 +1175,9 @@ Troubleshooting Tips:
         <image name="ride sharing" width="625" height="172"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="7bB-b6-pKL"/>
         <segue reference="dQb-qU-MrM"/>
-        <segue reference="6BZ-cX-gMX"/>
+        <segue reference="2ab-lV-eQ1"/>
         <segue reference="iQe-Fl-ZA1"/>
     </inferredMetricsTieBreakers>
 </document>

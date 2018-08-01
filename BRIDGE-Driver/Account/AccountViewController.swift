@@ -34,7 +34,7 @@ class AccountViewController: UIViewController {
         addressLabel.text = addressFull
         schoolLabel.text = "Valley Christian High School"
         schoolAddressLabel.text = "100 Skyway Drive, San Jose, CA 95111"
-        accountBalanceLabel.text = accountBalance
+        accountBalanceLabel.text = "$\(accountBalance)"
         profileImageView.image = profilePic
         profileImageView.layer.cornerRadius = (profileImageView.frame.height) / 2
         if driverStatus == "Verified" {
@@ -78,7 +78,7 @@ class AccountViewController: UIViewController {
             addressState = ""
             addressZIP = ""
             addressFull = ""
-            accountBalance = "$0.00"
+            accountBalance = 0.0
             let firebaseAuth = Auth.auth()
             do {
                 try firebaseAuth.signOut()

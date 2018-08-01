@@ -65,7 +65,7 @@ class DriverNavViewController: UIViewController, MKMapViewDelegate, CLLocationMa
         directions.calculate { (response, error) in
             guard let response = response else {
                 if let error = error {
-                    print("Something Went WRONG!!! WHAAA!!!!")
+                    print("Something Went Wrong! \(error)")
                 }
                 return
             }
@@ -100,7 +100,11 @@ class DriverNavViewController: UIViewController, MKMapViewDelegate, CLLocationMa
     }
     
     @IBAction func confirmButton(_ sender: UIButton) {
-        
+        let values = ["rideAccepted": true]
+        let requestRef = ref?.child("rideRequests").child(myRiderID)
+        requestRef?.updateChildValues(values)
+        //Segue to Nav VC
+        self.performSegue(withIdentifier: "toMapsNav", sender: self)
     }
     
 }
