@@ -26,6 +26,10 @@ class MapsNavViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.startUpdatingLocation()
         
+        let requestRef = ref?.child("acceptedRides").child(myRiderID)
+        let values = ["riderName": myRiderName, "riderLat": 0.0, "riderLong": 0.0, "driverID": userID, "driverLat": 0.0, "driverLong": 0.0, "driverArrived": false, "dest": destination] as [String : Any]
+        requestRef?.updateChildValues(values)
+        
         let riderCoordinates = CLLocationCoordinate2D(latitude: myRiderLat, longitude: myRiderLong)
         let regionDistance:CLLocationDistance = 1000
         let regionSpan = MKCoordinateRegionMakeWithDistance(riderCoordinates, regionDistance, regionDistance)
@@ -41,7 +45,7 @@ class MapsNavViewController: UIViewController, CLLocationManagerDelegate {
         let driverCoordinates = location.coordinate
         
         let requestRef = ref?.child("acceptedRides").child(myRiderID)
-        let values = ["riderName": name, "riderLat": 0.0, "riderLong": 0.0, "driverID": "", "driverLat": 0.0, "driverLong": 0.0, "driverArrived": false, "dest": destination] as [String : Any]
+        let values = ["driverID": userID, "driverLat": driverCoordinates.latitude, "driverLong": driverCoordinates.longitude] as [String : Any]
         requestRef?.updateChildValues(values)
     }
 
