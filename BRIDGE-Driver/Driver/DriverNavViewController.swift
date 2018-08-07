@@ -10,7 +10,6 @@ import UIKit
 import MapKit
 import CoreLocation
 import Firebase
-import FirebaseDatabase
 
 class DriverNavViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
 

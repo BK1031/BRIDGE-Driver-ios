@@ -25,6 +25,7 @@ class MapsNavViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.startUpdatingLocation()
+        locationManager.allowsBackgroundLocationUpdates = true
         
         let requestRef = ref?.child("acceptedRides").child(myRiderID)
         let values = ["riderName": myRiderName, "riderLat": 0.0, "riderLong": 0.0, "driverID": userID, "driverLat": 0.0, "driverLong": 0.0, "driverArrived": false, "dest": destination] as [String : Any]
