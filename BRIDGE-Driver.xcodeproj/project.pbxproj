@@ -26,6 +26,7 @@
 		4F1B30092110CDFF004EF617 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1B30082110CDFE004EF617 /* AccountViewController.swift */; };
 		4F73376B2112302C00DD005E /* MapsNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F73376A2112302C00DD005E /* MapsNavViewController.swift */; };
 		4FF938E3211E635900C55AFE /* RiderLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF938E2211E635900C55AFE /* RiderLocationViewController.swift */; };
+		4FF938E7211EC88600C55AFE /* DestMapsNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF938E6211EC88600C55AFE /* DestMapsNavViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		4F1B30082110CDFE004EF617 /* AccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		4F73376A2112302C00DD005E /* MapsNavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapsNavViewController.swift; sourceTree = "<group>"; };
 		4FF938E2211E635900C55AFE /* RiderLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RiderLocationViewController.swift; sourceTree = "<group>"; };
+		4FF938E6211EC88600C55AFE /* DestMapsNavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestMapsNavViewController.swift; sourceTree = "<group>"; };
 		82B8781CE4C24408E5C9E78C /* Pods-BRIDGE-Driver.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BRIDGE-Driver.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BRIDGE-Driver/Pods-BRIDGE-Driver.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -149,6 +151,7 @@
 				4F12195A210FE1B800BE0BD4 /* DriverNavViewController.swift */,
 				4F73376A2112302C00DD005E /* MapsNavViewController.swift */,
 				4FF938E2211E635900C55AFE /* RiderLocationViewController.swift */,
+				4FF938E6211EC88600C55AFE /* DestMapsNavViewController.swift */,
 			);
 			path = Driver;
 			sourceTree = "<group>";
@@ -308,6 +311,7 @@
 				4F12195D210FE1B900BE0BD4 /* DriverViewController.swift in Sources */,
 				4F121946210F8B3400BE0BD4 /* ViewController.swift in Sources */,
 				4F12192B210F7B0100BE0BD4 /* AppDelegate.swift in Sources */,
+				4FF938E7211EC88600C55AFE /* DestMapsNavViewController.swift in Sources */,
 				4F121959210FB7CE00BE0BD4 /* Initialization.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

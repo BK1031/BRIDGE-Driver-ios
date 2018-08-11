@@ -856,19 +856,72 @@ Troubleshooting Tips:
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="QIh-PG-uUH">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KvW-ki-lGf">
+                                <rect key="frame" x="10" y="607" width="355" height="50"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.65000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="qWC-Kz-F0P"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="25"/>
+                                <state key="normal" title="Picked Up Rider">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="confirmButton:" destination="A27-UR-e6P" eventType="touchUpInside" id="O6H-HI-Vy0"/>
+                                    <action selector="pickedUp:" destination="0Nv-O5-Dtf" eventType="touchUpInside" id="dyk-4T-AbE"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3jq-Gr-jUC">
+                                <rect key="frame" x="20" y="74" width="335" height="100"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Once you have picked up your rider, please click the button below." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bqr-ZR-eJj">
+                                        <rect key="frame" x="10" y="10" width="315" height="50.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="21"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="65L-Zq-7IP">
+                                        <rect key="frame" x="10" y="60.5" width="315" height="39.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <state key="normal" title="Rider Details">
+                                            <color key="titleColor" red="0.99607843139999996" green="0.8365689516" blue="0.28481131790000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.65000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="65L-Zq-7IP" firstAttribute="leading" secondItem="3jq-Gr-jUC" secondAttribute="leading" constant="10" id="33C-Oe-Hg2"/>
+                                    <constraint firstAttribute="trailing" secondItem="Bqr-ZR-eJj" secondAttribute="trailing" constant="10" id="8By-Bs-akI"/>
+                                    <constraint firstItem="65L-Zq-7IP" firstAttribute="top" secondItem="Bqr-ZR-eJj" secondAttribute="bottom" id="8HV-K3-gPN"/>
+                                    <constraint firstAttribute="bottom" secondItem="65L-Zq-7IP" secondAttribute="bottom" id="LgI-kM-Zy8"/>
+                                    <constraint firstItem="Bqr-ZR-eJj" firstAttribute="top" secondItem="3jq-Gr-jUC" secondAttribute="top" constant="10" id="jhz-pB-tBc"/>
+                                    <constraint firstAttribute="height" constant="100" id="lRJ-2g-WfR"/>
+                                    <constraint firstItem="Bqr-ZR-eJj" firstAttribute="leading" secondItem="3jq-Gr-jUC" secondAttribute="leading" constant="10" id="r1j-PX-dIx"/>
+                                    <constraint firstAttribute="trailing" secondItem="65L-Zq-7IP" secondAttribute="trailing" constant="10" id="wGJ-3q-FGc"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="QIh-PG-uUH" firstAttribute="top" secondItem="H0Z-Pp-Lme" secondAttribute="top" id="2bn-DY-t9J"/>
+                            <constraint firstItem="y7I-ga-srJ" firstAttribute="bottom" secondItem="KvW-ki-lGf" secondAttribute="bottom" constant="10" id="67M-td-NBh"/>
+                            <constraint firstItem="3jq-Gr-jUC" firstAttribute="leading" secondItem="y7I-ga-srJ" secondAttribute="leading" constant="20" id="DPK-Xj-eqx"/>
+                            <constraint firstItem="y7I-ga-srJ" firstAttribute="trailing" secondItem="3jq-Gr-jUC" secondAttribute="trailing" constant="20" id="I1d-db-HBT"/>
                             <constraint firstItem="QIh-PG-uUH" firstAttribute="bottom" secondItem="y7I-ga-srJ" secondAttribute="bottom" id="QA6-aY-XjE"/>
+                            <constraint firstItem="KvW-ki-lGf" firstAttribute="leading" secondItem="H0Z-Pp-Lme" secondAttribute="leading" constant="10" id="T6Y-QV-gmf"/>
+                            <constraint firstAttribute="trailing" secondItem="KvW-ki-lGf" secondAttribute="trailing" constant="10" id="ZxD-wx-pa7"/>
                             <constraint firstItem="QIh-PG-uUH" firstAttribute="leading" secondItem="y7I-ga-srJ" secondAttribute="leading" id="h9f-TP-h1R"/>
                             <constraint firstItem="QIh-PG-uUH" firstAttribute="trailing" secondItem="y7I-ga-srJ" secondAttribute="trailing" id="oXP-OQ-7Gb"/>
+                            <constraint firstItem="3jq-Gr-jUC" firstAttribute="top" secondItem="y7I-ga-srJ" secondAttribute="top" constant="10" id="qgp-5Z-VSc"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="y7I-ga-srJ"/>
                     </view>
                     <navigationItem key="navigationItem" title="BRIDGE" id="0IU-tT-Eev"/>
                     <connections>
+                        <outlet property="directionsView" destination="3jq-Gr-jUC" id="q5M-kq-BnZ"/>
                         <outlet property="mapView" destination="QIh-PG-uUH" id="o4S-9V-yG1"/>
+                        <outlet property="pickedRiderButton" destination="KvW-ki-lGf" id="9UY-Fh-vMF"/>
+                        <segue destination="BGi-Dh-Rnb" kind="presentation" identifier="finalNav" modalTransitionStyle="crossDissolve" id="Qbu-fu-hpV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AUe-Jy-WMv" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1206,6 +1259,44 @@ Troubleshooting Tips:
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I9A-ts-HUv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4428" y="-67"/>
+        </scene>
+        <!--Dest Maps Nav View Controller-->
+        <scene sceneID="1YF-Al-ADF">
+            <objects>
+                <viewController id="BGi-Dh-Rnb" customClass="DestMapsNavViewController" customModule="BRIDGE_Driver" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ruz-k7-iCp">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="15S-Cb-2zy">
+                                <rect key="frame" x="100" y="318.5" width="175" height="30"/>
+                                <state key="normal" title="ROUTE TO DESTINATION">
+                                    <color key="titleColor" red="0.99607843139999996" green="0.8365689516" blue="0.28481131790000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="route:" destination="BGi-Dh-Rnb" eventType="touchUpInside" id="5TO-Ac-FH7"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You haven't reached your destination yet." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UJq-gN-NeD">
+                                <rect key="frame" x="29.5" y="277.5" width="316" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="15S-Cb-2zy" firstAttribute="centerY" secondItem="ruz-k7-iCp" secondAttribute="centerY" id="KdT-aR-uNY"/>
+                            <constraint firstItem="15S-Cb-2zy" firstAttribute="top" secondItem="UJq-gN-NeD" secondAttribute="bottom" constant="20" id="Qyh-6u-TiK"/>
+                            <constraint firstItem="15S-Cb-2zy" firstAttribute="centerX" secondItem="ruz-k7-iCp" secondAttribute="centerX" id="vdF-uA-zTs"/>
+                            <constraint firstItem="UJq-gN-NeD" firstAttribute="centerX" secondItem="ruz-k7-iCp" secondAttribute="centerX" id="yES-ei-ECU"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="2bb-7m-xn0"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pTn-xF-ysb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6010" y="-67"/>
         </scene>
     </scenes>
     <resources>
