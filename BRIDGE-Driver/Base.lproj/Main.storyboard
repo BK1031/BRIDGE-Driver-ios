@@ -848,18 +848,32 @@ Troubleshooting Tips:
         <!--BRIDGE-->
         <scene sceneID="M3I-fy-jHQ">
             <objects>
-                <viewController id="0Nv-O5-Dtf" sceneMemberID="viewController">
+                <viewController id="0Nv-O5-Dtf" customClass="RiderLocationViewController" customModule="BRIDGE_Driver" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="H0Z-Pp-Lme">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="QIh-PG-uUH">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </mapView>
+                        </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="QIh-PG-uUH" firstAttribute="top" secondItem="H0Z-Pp-Lme" secondAttribute="top" id="2bn-DY-t9J"/>
+                            <constraint firstItem="QIh-PG-uUH" firstAttribute="bottom" secondItem="y7I-ga-srJ" secondAttribute="bottom" id="QA6-aY-XjE"/>
+                            <constraint firstItem="QIh-PG-uUH" firstAttribute="leading" secondItem="y7I-ga-srJ" secondAttribute="leading" id="h9f-TP-h1R"/>
+                            <constraint firstItem="QIh-PG-uUH" firstAttribute="trailing" secondItem="y7I-ga-srJ" secondAttribute="trailing" id="oXP-OQ-7Gb"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="y7I-ga-srJ"/>
                     </view>
                     <navigationItem key="navigationItem" title="BRIDGE" id="0IU-tT-Eev"/>
+                    <connections>
+                        <outlet property="mapView" destination="QIh-PG-uUH" id="o4S-9V-yG1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AUe-Jy-WMv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5210" y="-67"/>
+            <point key="canvasLocation" x="5208.8000000000002" y="-67.016491754122939"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="xOx-X0-I3P">
@@ -1137,9 +1151,35 @@ Troubleshooting Tips:
                     <view key="view" contentMode="scaleToFill" id="syj-Ny-HR7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NZD-Jr-gWw">
+                                <rect key="frame" x="127" y="318.5" width="121" height="30"/>
+                                <state key="normal" title="ROUTE TO RIDER">
+                                    <color key="titleColor" red="0.99607843139999996" green="0.8365689516" blue="0.28481131790000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="route:" destination="hPb-gb-gHZ" eventType="touchUpInside" id="JMr-Z6-GrM"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You haven't reached your rider yet." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9ry-8w-rsG">
+                                <rect key="frame" x="54.5" y="277.5" width="266" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="NZD-Jr-gWw" firstAttribute="top" secondItem="9ry-8w-rsG" secondAttribute="bottom" constant="20" id="51n-pV-6dP"/>
+                            <constraint firstItem="NZD-Jr-gWw" firstAttribute="centerX" secondItem="syj-Ny-HR7" secondAttribute="centerX" id="8qa-MU-seb"/>
+                            <constraint firstItem="NZD-Jr-gWw" firstAttribute="centerY" secondItem="syj-Ny-HR7" secondAttribute="centerY" id="EbU-XT-cca"/>
+                            <constraint firstItem="9ry-8w-rsG" firstAttribute="centerX" secondItem="syj-Ny-HR7" secondAttribute="centerX" id="FlL-uK-amU"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="90H-qY-XZu"/>
                     </view>
+                    <connections>
+                        <segue destination="L96-rc-Lzb" kind="presentation" identifier="arrivedAtRider" modalTransitionStyle="crossDissolve" id="yN2-tn-UtP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qmU-vd-iUg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
