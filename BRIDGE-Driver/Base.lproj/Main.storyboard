@@ -799,7 +799,7 @@ Troubleshooting Tips:
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qdg-dj-su1">
-                                <rect key="frame" x="20" y="40" width="335" height="100"/>
+                                <rect key="frame" x="20" y="84" width="335" height="100"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please confirm the ride below. Once you arrive at the destination, return to the BRIDGE app." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P1O-Ix-F4Y">
                                         <rect key="frame" x="10" y="10" width="315" height="80"/>
@@ -907,7 +907,7 @@ Troubleshooting Tips:
                             <constraint firstItem="y7I-ga-srJ" firstAttribute="bottom" secondItem="KvW-ki-lGf" secondAttribute="bottom" constant="10" id="67M-td-NBh"/>
                             <constraint firstItem="3jq-Gr-jUC" firstAttribute="leading" secondItem="y7I-ga-srJ" secondAttribute="leading" constant="20" id="DPK-Xj-eqx"/>
                             <constraint firstItem="y7I-ga-srJ" firstAttribute="trailing" secondItem="3jq-Gr-jUC" secondAttribute="trailing" constant="20" id="I1d-db-HBT"/>
-                            <constraint firstItem="QIh-PG-uUH" firstAttribute="bottom" secondItem="y7I-ga-srJ" secondAttribute="bottom" id="QA6-aY-XjE"/>
+                            <constraint firstItem="QIh-PG-uUH" firstAttribute="bottom" secondItem="H0Z-Pp-Lme" secondAttribute="bottom" id="QA6-aY-XjE"/>
                             <constraint firstItem="KvW-ki-lGf" firstAttribute="leading" secondItem="H0Z-Pp-Lme" secondAttribute="leading" constant="10" id="T6Y-QV-gmf"/>
                             <constraint firstAttribute="trailing" secondItem="KvW-ki-lGf" secondAttribute="trailing" constant="10" id="ZxD-wx-pa7"/>
                             <constraint firstItem="QIh-PG-uUH" firstAttribute="leading" secondItem="y7I-ga-srJ" secondAttribute="leading" id="h9f-TP-h1R"/>
@@ -1154,6 +1154,7 @@ Troubleshooting Tips:
                         <outlet property="signOutButton" destination="0hM-8M-Ko2" id="zQ0-aE-2nc"/>
                         <outlet property="studentLabel" destination="th0-RW-ZDg" id="VOR-dw-pg5"/>
                         <segue destination="6Bx-Sf-no2" kind="show" identifier="editAccount" id="w8M-Uo-Wje"/>
+                        <segue destination="5dP-7Q-rt1" kind="presentation" identifier="logOut" modalTransitionStyle="flipHorizontal" id="xEz-49-sEX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uym-ft-AKm" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1293,6 +1294,9 @@ Troubleshooting Tips:
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2bb-7m-xn0"/>
                     </view>
+                    <connections>
+                        <segue destination="SWV-io-mak" kind="presentation" identifier="rideDone" modalTransitionStyle="crossDissolve" id="vXV-0T-uBd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pTn-xF-ysb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1306,8 +1310,8 @@ Troubleshooting Tips:
         <image name="ride sharing" width="625" height="172"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="dQb-qU-MrM"/>
-        <segue reference="2ab-lV-eQ1"/>
-        <segue reference="iQe-Fl-ZA1"/>
+        <segue reference="vXV-0T-uBd"/>
+        <segue reference="xEz-49-sEX"/>
+        <segue reference="zVo-tv-BFy"/>
     </inferredMetricsTieBreakers>
 </document>

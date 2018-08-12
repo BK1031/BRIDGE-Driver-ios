@@ -32,7 +32,7 @@ class AccountViewController: UIViewController {
         phoneLabel.text = phone
         studentLabel.text = kidName
         addressLabel.text = addressFull
-        schoolLabel.text = "Valley Christian High School"
+        schoolLabel.text = school
         schoolAddressLabel.text = "100 Skyway Drive, San Jose, CA 95111"
         accountBalanceLabel.text = "$\(accountBalance)"
         profileImageView.image = profilePic

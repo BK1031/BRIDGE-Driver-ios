@@ -37,7 +37,8 @@ var myRiderName = ""
 var myRiderID = ""
 var myRiderLat = 0.0
 var myRiderLong = 0.0
-var myRiderDest = ""
+var myRiderDestLat = 0.0
+var myRiderDestLong = 0.0
 
 var school = ""
 var schoolLat = 0.0

@@ -42,7 +42,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         //Hardcoded School Coordinates
         if school == "Valley Christian High School" {
             schoolLat = 37.2761
-            schoolLong = 121.8254
+            schoolLong = -121.8254
         }
     }
 

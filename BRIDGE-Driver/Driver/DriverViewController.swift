@@ -30,12 +30,18 @@ class DriverViewController: UIViewController, MKMapViewDelegate, CLLocationManag
     var riderCoordinates = ""
     var riderAddress = ""
     var riderDest = ""
+    var riderDestLat = 0.0
+    var riderDestLong = 0.0
+    var riderSchool = ""
     
     var riderIDs = [String]()
     var rideRequests = [String]()
     var rideLat = [Double]()
     var rideLong = [Double]()
+    var riderSchools = [String]()
     var rideDests = [String]()
+    var rideDestLats = [Double]()
+    var rideDestLongs = [Double]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,23 +59,33 @@ class DriverViewController: UIViewController, MKMapViewDelegate, CLLocationManag
             if snapshot.childrenCount > 0 {
                 self.rideRequests.removeAll()
                 self.riderIDs.removeAll()
+                self.riderSchools.removeAll()
                 self.rideLat.removeAll()
                 self.rideLong.removeAll()
                 self.rideDests.removeAll()
+                self.rideDestLats.removeAll()
+                self.rideDestLongs.removeAll()
                 
                 for rider in snapshot.children.allObjects as! [DataSnapshot] {
                     let request = rider.value as? [String: AnyObject]
                     self.riderName = request!["riderName"] as! String
                     self.riderID = request!["riderID"] as! String
+                    self.riderSchool = request!["riderSchool"] as! String
                     self.riderLat = request!["lat"] as! Double
                     self.riderLong = request!["long"] as! Double
                     self.riderDest = request!["dest"] as! String
+                    self.riderDestLat = request!["destLat"] as! Double
+                    self.riderDestLong = request!["destLong"] as! Double
                     
                     self.rideRequests.append(self.riderName)
                     self.riderIDs.append(self.riderID)
                     self.rideLat.append(self.riderLat)
                     self.rideLong.append(self.riderLong)
                     self.rideDests.append(self.riderDest)
+                    self.rideDestLats.append(self.riderDestLat)
+                    self.rideDestLongs.append(self.riderDestLong)
+                    
+                    self.tableView.reloadData()
                 }
                 self.tableView.reloadData()
             }
@@ -78,8 +94,11 @@ class DriverViewController: UIViewController, MKMapViewDelegate, CLLocationManag
                 self.rideLat.removeAll()
                 self.rideLong.removeAll()
                 self.riderIDs.removeAll()
+                self.riderSchools.removeAll()
                 self.rideRequests.removeAll()
                 self.rideDests.removeAll()
+                self.rideDestLats.removeAll()
+                self.rideDestLongs.removeAll()
                 self.tableView.reloadData()
             }
             
@@ -110,12 +129,8 @@ class DriverViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         cell.cellView.layer.cornerRadius = cell.cellView.frame.height / 2
         
         cell.riderName.text = rideRequests[indexPath.row]
-        if rideDests[indexPath.row] == "School" {
-            cell.riderLocation.text = school
-        }
-        else {
-            cell.riderLocation.text = "Home"
-        }
+        
+        cell.riderLocation.text = rideDests[indexPath.row]
         
         cell.riderPic.layer.cornerRadius = cell.riderPic.frame.height / 2
         
@@ -127,7 +142,9 @@ class DriverViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         myRiderID = self.riderIDs[indexPath.row]
         myRiderLat = self.rideLat[indexPath.row]
         myRiderLong = self.rideLong[indexPath.row]
-        myRiderDest = self.rideDests[indexPath.row]
+        destination = self.rideDests[indexPath.row]
+        myRiderDestLat = self.rideDestLats[indexPath.row]
+        myRiderDestLong = self.rideDestLongs[indexPath.row]
         
         performSegue(withIdentifier: "driverNav", sender: nil)
     }
