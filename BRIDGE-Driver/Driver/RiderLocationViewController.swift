@@ -95,7 +95,7 @@ class RiderLocationViewController: UIViewController, CLLocationManagerDelegate, 
     }
     
     @IBAction func pickedUp(_ sender: Any) {
-        let requestRef = ref?.child("acceptedRides").child(userID)
+        let requestRef = ref?.child("acceptedRides").child(myRiderID)
         let values = ["pickedUp": true] as [String : Any]
         requestRef?.updateChildValues(values)
         self.performSegue(withIdentifier: "finalNav", sender: self)
@@ -104,7 +104,7 @@ class RiderLocationViewController: UIViewController, CLLocationManagerDelegate, 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locationManager.location?.coordinate {
             userLocation = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
-            let requestRef = ref?.child("acceptedRides").child(userID)
+            let requestRef = ref?.child("acceptedRides").child(myRiderID)
             let values = ["driverLat": userLocation!.latitude, "driverLong": userLocation!.longitude] as [String : Any]
             requestRef?.updateChildValues(values)
         }
