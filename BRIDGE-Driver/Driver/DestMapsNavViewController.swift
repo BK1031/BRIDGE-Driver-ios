@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 import MapKit
 import CoreLocation
+import UserNotifications
 
 class DestMapsNavViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     
@@ -57,7 +58,23 @@ class DestMapsNavViewController: UIViewController, CLLocationManagerDelegate, MK
     }
     
     func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
-        //Arrived at Dest!
+        //Driver Notification
+        let content = UNMutableNotificationContent()
+        content.title = "Arrived at Destination"
+        content.body = "You have arrived at your rider's destination!"
+        content.sound = UNNotificationSound.default()
+        
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 0.1, repeats: false)
+        let request = UNNotificationRequest(identifier: "DestArrival", content: content, trigger: trigger)
+        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+        
+        //Delete Request Data
+        self.locationManager.stopUpdatingLocation()
+        let requestRef = ref?.child("acceptedRides").child(userID)
+        let values = ["riderName": nil, "riderLat": nil, "riderLong": nil, "driverID": nil, "driverLat": nil, "driverLong": nil, "driverArrived": nil, "pickedUp": nil, "dest": nil] as [String : AnyObject]
+        requestRef?.updateChildValues(values)
+        rideDone = true
+        
         self.performSegue(withIdentifier: "rideDone", sender: self)
     }
     

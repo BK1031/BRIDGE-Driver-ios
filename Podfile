@@ -7,10 +7,12 @@ target 'BRIDGE-Driver' do
 
   # Pods for BRIDGE-Driver
   source 'https://github.com/CocoaPods/Specs.git'
+  pod 'GoogleMaps'
+  pod 'GooglePlaces'
   pod 'PhoneNumberKit', '~> 2.1'
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
   pod 'Firebase/Storage'
   pod 'Firebase/Database'
-
+  pod 'Alamofire', '~> 4.7'
 end

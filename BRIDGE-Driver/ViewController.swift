@@ -8,13 +8,13 @@
 
 import UIKit
 import Firebase
-import MapKit
+import GoogleMaps
 import UserNotifications
 
-class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
+class ViewController: UIViewController, CLLocationManagerDelegate {
     
-    @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var requestButton: UIButton!
+    @IBOutlet weak var mapView: GMSMapView!
     
     let locationManager = CLLocationManager()
     
@@ -31,6 +31,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         locationManager.requestAlwaysAuthorization()
         locationManager.startUpdatingLocation()
         
+        mapView.isMyLocationEnabled = true
+        mapView.settings.myLocationButton = true
+        mapView.padding.bottom = view.safeAreaInsets.bottom + 70
+        
         let center =  UNUserNotificationCenter.current()
         center.requestAuthorization(options: [.alert, .sound, .badge]) { (result, error) in
             //handle result of request failure
@@ -43,6 +47,23 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         if school == "Valley Christian High School" {
             schoolLat = 37.2761
             schoolLong = -121.8254
+        }
+        
+        if rideDone {
+            myRiderName = ""
+            myRiderID = ""
+            myRiderLat = 0.0
+            myRiderLong = 0.0
+            myRiderDestLat = 0.0
+            myRiderDestLong = 0.0
+            destination = ""
+            rideDone = false
+            let alert = UIAlertController(title: "Ride Completed", message: "Your rider has successfully been dropped off at their destination!", preferredStyle: .alert)
+            let action = UIAlertAction(title: "Got it", style: .default, handler: { (action) in
+                //Don't do anything boi
+            })
+            alert.addAction(action)
+            self.present(alert, animated: true, completion: nil)
         }
         
         ref?.child("stableVersion").observeSingleEvent(of: .value, with: { (snapshot) in
@@ -70,10 +91,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let location = locations[0]
         let center = location.coordinate
-        let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
-        let region = MKCoordinateRegion(center: center, span: span)
-        mapView.setRegion(region, animated: true)
-        mapView.showsUserLocation = true
+        let camera = GMSCameraPosition(target: center, zoom: 16.0, bearing: 0, viewingAngle: 0)
+        mapView.animate(to: camera)
     }
     
     @IBAction func showAccount(_ sender: Any) {

@@ -7,22 +7,25 @@
 //
 
 import UIKit
-import MapKit
 import CoreLocation
 import Firebase
+import GoogleMaps
+import MapKit
 
-class DriverNavViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
-
-    @IBOutlet weak var mapView: MKMapView!
+class DriverNavViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
+    
+    @IBOutlet weak var mapView: GMSMapView!
     @IBOutlet weak var navigationLabel: UILabel!
     @IBOutlet weak var confirmButton: UIButton!
     @IBOutlet weak var directionsView: UIView!
     
     let locationManager = CLLocationManager()
-    var driverLocation:CLLocationCoordinate2D?
     
     var ref:DatabaseReference?
     var databaseHandle:DatabaseHandle?
+    
+    var riderCoordinates = CLLocationCoordinate2DMake(myRiderLat, myRiderLong)
+    var destCoordinates = CLLocationCoordinate2DMake(myRiderDestLat, myRiderDestLong)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,70 +33,90 @@ class DriverNavViewController: UIViewController, MKMapViewDelegate, CLLocationMa
         self.navigationItem.title = "BRIDGE"
         
         directionsView.layer.cornerRadius = 10
-        
         confirmButton.layer.cornerRadius = 10
         
         ref = Database.database().reference()
         
-        mapView.delegate = self
-        mapView.showsScale = true
-        mapView.showsPointsOfInterest = true
-        mapView.showsUserLocation = true
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.startUpdatingLocation()
+        locationManager.allowsBackgroundLocationUpdates = true
         
-        if CLLocationManager.locationServicesEnabled() {
-            locationManager.delegate = self
-            locationManager.desiredAccuracy = kCLLocationAccuracyBest
-            locationManager.startUpdatingLocation()
-        }
+        mapView.isMyLocationEnabled = true
         
-        let sourceCoordinates = locationManager.location?.coordinate
-        let destCoordinates = CLLocationCoordinate2DMake(Double(myRiderLat), Double(myRiderLong))
+        var driverLocation = locationManager.location?.coordinate
         
-        let sourcePlacemark = MKPlacemark(coordinate: sourceCoordinates!)
-        let destPlacemark = MKPlacemark(coordinate: destCoordinates)
+        let riderMarker = GMSMarker()
+        riderMarker.position = riderCoordinates
+        riderMarker.title = "Rider"
+        riderMarker.snippet = "This is the location of your rider"
+        riderMarker.map = self.mapView
         
-        let sourceItem = MKMapItem(placemark: sourcePlacemark)
-        let destItem = MKMapItem(placemark: destPlacemark)
+        let destMarker = GMSMarker()
+        destMarker.position = destCoordinates
+        destMarker.title = "Destination"
+        destMarker.snippet = "This is the location of your rider's destinaton"
+        destMarker.map = self.mapView
         
-        let directionRequest = MKDirectionsRequest()
-        directionRequest.source = sourceItem
-        directionRequest.destination = destItem
-        directionRequest.transportType = .automobile
+        let sourceCoorString = "\(driverLocation!.latitude),\(driverLocation!.longitude)"
+        let midCoorString = "\(myRiderLat),\(myRiderLong)"
+        let destCoorString = "\(destCoordinates.latitude),\(destCoordinates.longitude)"
         
-        let directions = MKDirections(request: directionRequest)
-        directions.calculate { (response, error) in
-            guard let response = response else {
-                if let error = error {
-                    print("Something Went Wrong! \(error)")
-                }
-                return
-            }
-            let route = response.routes[0]
-            self.mapView.add(route.polyline, level: .aboveRoads)
+        let urlString = "https://maps.googleapis.com/maps/api/directions/json?origin=\(sourceCoorString)&destination=\(destCoorString)&waypoints=\(midCoorString)&key=AIzaSyDpnFep4SN9iBjtN6MKG9bwdS1ocxNXuRs"
+        guard let url = URL(string: urlString) else {return}
+        
+        URLSession.shared.dataTask(with: url) { (data, response, erro) in
+            //Extract data here
+            guard let data = data else {return}
             
-            let rekt = route.polyline.boundingMapRect
-            self.mapView.setRegion(MKCoordinateRegionForMapRect(rekt), animated: true)
-        }
-        
-        let annotation = MKPointAnnotation()
-        annotation.coordinate = destCoordinates
-        annotation.title = "Rider"
-        annotation.subtitle = "This is the location of your rider."
-        mapView.addAnnotation(annotation)
-        
-    }
-    
-    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
-        let renderer = MKPolylineRenderer(overlay: overlay)
-        renderer.strokeColor =  UIColor.blue
-        renderer.lineWidth = 5.0
-        
-        return renderer
+            do {
+                let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as! [String: AnyObject]
+                
+                print(json)
+                
+                //Extract JSON Data
+                let arrayRoutes = json["routes"] as! NSArray
+                let arrLegs = (arrayRoutes[0] as! NSDictionary).object(forKey: "legs") as! NSArray
+                let arrSteps = arrLegs[0] as! NSDictionary
+                
+                let dicDistance = arrSteps["distance"] as! NSDictionary
+                let distance = dicDistance["text"] as! String
+                
+                let dicDuration = arrSteps["duration"] as! NSDictionary
+                let duration = dicDuration["text"] as! String
+                
+                print("\(distance), \(duration)")
+                
+                //Extract Polyline Data
+                let array = json["routes"] as! NSArray
+                let dic = array[0] as! NSDictionary
+                let dic1 = dic["overview_polyline"] as! NSDictionary
+                let points = dic1["points"] as! String
+                print(points)
+                
+                //Return to main thread
+                DispatchQueue.main.async {
+                    //Show polyline
+                    let path = GMSPath(fromEncodedPath: points)
+                    var rectangle = GMSPolyline(path: path)
+                    rectangle.map = nil
+                    rectangle.strokeWidth = 4.0
+                    rectangle.strokeColor = UIColor.blue
+                    rectangle.map = self.mapView
+                    
+                    self.mapView.animate(with: GMSCameraUpdate.fit(GMSCoordinateBounds(path: rectangle.path!), withPadding: 50))
+
+                }
+                
+            } catch let jsonError {
+                print("Error Serializing JSON")
+            }
+        }.resume()
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locationManager.location?.coordinate {
-            driverLocation = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
+//            driverLocation = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
         }
         
     }

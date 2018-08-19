@@ -8,13 +8,12 @@
 
 import UIKit
 import Firebase
-import FirebaseDatabase
-import MapKit
+import GoogleMaps
 import CoreLocation
 
-class DriverViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, UITableViewDelegate, UITableViewDataSource {
+class DriverViewController: UIViewController, CLLocationManagerDelegate, UITableViewDelegate, UITableViewDataSource {
 
-    @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var mapView: GMSMapView!
     @IBOutlet weak var tableView: UITableView!
     
     let locationManager = CLLocationManager()
@@ -54,6 +53,8 @@ class DriverViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         locationManager.startUpdatingLocation()
         
         ref = Database.database().reference()
+        
+        mapView.isMyLocationEnabled = true
         
         databaseHandle = ref?.child("rideRequests").observe(.value, with: { (snapshot) in
             if snapshot.childrenCount > 0 {
@@ -109,10 +110,8 @@ class DriverViewController: UIViewController, MKMapViewDelegate, CLLocationManag
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let location = locations[0]
         let center = location.coordinate
-        let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
-        let region = MKCoordinateRegion(center: center, span: span)
-        mapView.setRegion(region, animated: false)
-        mapView.showsUserLocation = true
+        let camera = GMSCameraPosition(target: center, zoom: 16.0, bearing: 0, viewingAngle: 0)
+        mapView.animate(to: camera)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

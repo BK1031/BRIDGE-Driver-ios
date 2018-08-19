@@ -75,6 +75,16 @@ class MapsNavViewController: UIViewController, CLLocationManagerDelegate {
         
         locationManager.stopUpdatingLocation()
         
+        //Driver Notification
+        let content = UNMutableNotificationContent()
+        content.title = "Arrived at Rider"
+        content.body = "You have arrived at your rider's location!"
+        content.sound = UNNotificationSound.default()
+        
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 0.1, repeats: false)
+        let request = UNNotificationRequest(identifier: "Arrival", content: content, trigger: trigger)
+        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+        
         self.performSegue(withIdentifier: "arrivedAtRider", sender: self)
     }
 

@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F9FA94DF0762B36119049CA634C3BDEF"
+               BlueprintIdentifier = "C83908892738CD3F8040429E7ACB45A8"
                BuildableName = "Pods_BRIDGE_Driver.framework"
                BlueprintName = "Pods-BRIDGE-Driver"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "F9FA94DF0762B36119049CA634C3BDEF"
+            BlueprintIdentifier = "C83908892738CD3F8040429E7ACB45A8"
             BuildableName = "Pods_BRIDGE_Driver.framework"
             BlueprintName = "Pods-BRIDGE-Driver"
             ReferencedContainer = "container:Pods.xcodeproj">
