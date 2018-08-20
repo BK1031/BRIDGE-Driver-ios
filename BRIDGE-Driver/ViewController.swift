@@ -50,6 +50,17 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         }
         
         if rideDone {
+            //Save Date info
+            let now = Date()
+            let formatter = DateFormatter()
+            formatter.timeZone = TimeZone.current
+            formatter.dateFormat = "MM/dd/yy"
+            let date = formatter.string(from: now)
+            
+            let values = ["date": date, "startTime": startTime, "midTime": midTime, "endTime": endTime, "riderID": myRiderID]
+            let historyRef = Database.database().reference().child("drivers").child(userID).child("history").child("\(now)")
+            historyRef.updateChildValues(values)
+            
             myRiderName = ""
             myRiderID = ""
             myRiderLat = 0.0
@@ -57,7 +68,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             myRiderDestLat = 0.0
             myRiderDestLong = 0.0
             destination = ""
+            startTime = ""
+            midTime = ""
+            endTime = ""
             rideDone = false
+            
             let alert = UIAlertController(title: "Ride Completed", message: "Your rider has successfully been dropped off at their destination!", preferredStyle: .alert)
             let action = UIAlertAction(title: "Got it", style: .default, handler: { (action) in
                 //Don't do anything boi

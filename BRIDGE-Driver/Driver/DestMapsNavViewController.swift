@@ -19,6 +19,8 @@ class DestMapsNavViewController: UIViewController, CLLocationManagerDelegate, MK
     
     let locationManager = CLLocationManager()
     var userLocation:CLLocationCoordinate2D?
+    
+    var geoFenceRegion:CLCircularRegion = CLCircularRegion(center: CLLocationCoordinate2DMake(0.0, 0.0), radius: 10, identifier: "Destination")
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +36,7 @@ class DestMapsNavViewController: UIViewController, CLLocationManagerDelegate, MK
         let regionDistance:CLLocationDistance = 1000
         let regionSpan = MKCoordinateRegionMakeWithDistance(destCoordinates, regionDistance, regionDistance)
         
-        let geoFenceRegion:CLCircularRegion = CLCircularRegion(center: destCoordinates, radius: 10, identifier: "Destination")
+        self.geoFenceRegion = CLCircularRegion(center: destCoordinates, radius: 10, identifier: "Destination")
         locationManager.startMonitoring(for: geoFenceRegion)
         
         let options = [MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center), MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)]
@@ -74,6 +76,17 @@ class DestMapsNavViewController: UIViewController, CLLocationManagerDelegate, MK
         let values = ["riderName": nil, "riderLat": nil, "riderLong": nil, "driverID": nil, "driverLat": nil, "driverLong": nil, "driverArrived": nil, "pickedUp": nil, "dest": nil] as [String : AnyObject]
         requestRef?.updateChildValues(values)
         rideDone = true
+        
+        //Save time info
+        let now = Date()
+        let formatter = DateFormatter()
+        formatter.timeZone = TimeZone.current
+        formatter.dateFormat = "hh:mm a"
+        formatter.amSymbol = "AM"
+        formatter.pmSymbol = "PM"
+        endTime = formatter.string(from: now)
+        
+        locationManager.stopMonitoring(for: geoFenceRegion)
         
         self.performSegue(withIdentifier: "rideDone", sender: self)
     }

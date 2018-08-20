@@ -19,6 +19,8 @@ class MapsNavViewController: UIViewController, CLLocationManagerDelegate {
     var ref:DatabaseReference?
     var databaseHandle:DatabaseHandle?
 
+    var geoFenceRegion:CLCircularRegion = CLCircularRegion(center: CLLocationCoordinate2DMake(0.0, 0.0), radius: 10, identifier: "Rider")
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         ref = Database.database().reference()
@@ -36,7 +38,7 @@ class MapsNavViewController: UIViewController, CLLocationManagerDelegate {
         let regionDistance:CLLocationDistance = 1000
         let regionSpan = MKCoordinateRegionMakeWithDistance(riderCoordinates, regionDistance, regionDistance)
         
-        let geoFenceRegion:CLCircularRegion = CLCircularRegion(center: riderCoordinates, radius: 10, identifier: "Rider")
+        self.geoFenceRegion = CLCircularRegion(center: riderCoordinates, radius: 10, identifier: "Rider")
         locationManager.startMonitoring(for: geoFenceRegion)
         
         let options = [MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center), MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)]
@@ -68,6 +70,7 @@ class MapsNavViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
+        locationManager.stopMonitoring(for: geoFenceRegion)
         //Driver arrive at Rider Location
         let requestRef = ref?.child("acceptedRides").child(myRiderID)
         let values = ["driverArrived": true] as [String : Any]

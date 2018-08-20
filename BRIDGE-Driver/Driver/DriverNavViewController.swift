@@ -125,6 +125,14 @@ class DriverNavViewController: UIViewController, CLLocationManagerDelegate, MKMa
         let values = ["rideAccepted": true]
         let requestRef = ref?.child("rideRequests").child(myRiderID)
         requestRef?.updateChildValues(values)
+        //Save time info
+        let now = Date()
+        let formatter = DateFormatter()
+        formatter.timeZone = TimeZone.current
+        formatter.dateFormat = "hh:mm a"
+        formatter.amSymbol = "AM"
+        formatter.pmSymbol = "PM"
+        startTime = formatter.string(from: now)
         //Segue to Nav VC
         self.performSegue(withIdentifier: "toMapsNav", sender: self)
     }

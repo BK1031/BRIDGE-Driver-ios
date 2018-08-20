@@ -121,6 +121,15 @@ class RiderLocationViewController: UIViewController, CLLocationManagerDelegate {
         let requestRef = ref?.child("acceptedRides").child(myRiderID)
         let values = ["pickedUp": true] as [String : Any]
         requestRef?.updateChildValues(values)
+        //Save time info
+        let now = Date()
+        let formatter = DateFormatter()
+        formatter.timeZone = TimeZone.current
+        formatter.dateFormat = "hh:mm a"
+        formatter.amSymbol = "AM"
+        formatter.pmSymbol = "PM"
+        midTime = formatter.string(from: now)
+        
         self.performSegue(withIdentifier: "finalNav", sender: self)
     }
     
