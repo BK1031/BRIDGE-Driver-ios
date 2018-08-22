@@ -14,5 +14,5 @@ target 'BRIDGE-Driver' do
   pod 'Firebase/Auth'
   pod 'Firebase/Storage'
   pod 'Firebase/Database'
-  pod 'Alamofire', '~> 4.7'
+  pod 'Firebase/Messaging'
 end
