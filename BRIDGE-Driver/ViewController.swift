@@ -57,7 +57,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             formatter.dateFormat = "MM/dd/yy"
             let date = formatter.string(from: now)
             
-            let values = ["date": date, "startTime": startTime, "midTime": midTime, "endTime": endTime, "riderID": myRiderID]
+            let values = ["date": date, "startTime": startTime, "midTime": midTime, "endTime": endTime, "riderID": myRiderID, "dest": destination]
             let historyRef = Database.database().reference().child("drivers").child(userID).child("history").child("\(now)")
             historyRef.updateChildValues(values)
             
