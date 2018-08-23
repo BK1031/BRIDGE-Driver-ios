@@ -22,6 +22,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     var ref:DatabaseReference?
     var databaseHandle:DatabaseHandle?
 
+    //Only for ride completion error non-crashing gizmos
+    var riderName = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //Firebase Database Reference Setup
@@ -57,7 +60,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             formatter.dateFormat = "MM/dd/yy"
             let date = formatter.string(from: now)
             
-            let values = ["date": date, "startTime": startTime, "midTime": midTime, "endTime": endTime, "riderID": myRiderID, "dest": destination]
+            let values = ["date": date, "startTime": startTime, "midTime": midTime, "endTime": endTime, "riderID": myRiderID, "riderName": myRiderName, "dest": destination]
             let historyRef = Database.database().reference().child("drivers").child(userID).child("history").child("\(now)")
             historyRef.updateChildValues(values)
             

@@ -25,6 +25,9 @@
 		4F1B30092110CDFF004EF617 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1B30082110CDFE004EF617 /* AccountViewController.swift */; };
 		4F3FFF742123B80C002D6BDC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4F3FFF732123B80C002D6BDC /* GoogleService-Info.plist */; };
 		4F73376B2112302C00DD005E /* MapsNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F73376A2112302C00DD005E /* MapsNavViewController.swift */; };
+		4FC89D65212E45000002880A /* RideHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC89D62212E45000002880A /* RideHistoryViewController.swift */; };
+		4FC89D66212E45000002880A /* RideDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC89D63212E45000002880A /* RideDetailsViewController.swift */; };
+		4FC89D67212E45000002880A /* RideHistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC89D64212E45000002880A /* RideHistoryTableViewCell.swift */; };
 		4FDA5B922124A83300BDA5D0 /* Montserrat-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4FDA5B802124A82600BDA5D0 /* Montserrat-SemiBoldItalic.ttf */; };
 		4FDA5B932124A83300BDA5D0 /* Montserrat-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4FDA5B812124A82700BDA5D0 /* Montserrat-ExtraLight.ttf */; };
 		4FDA5B942124A83300BDA5D0 /* Montserrat-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4FDA5B822124A82800BDA5D0 /* Montserrat-ThinItalic.ttf */; };
@@ -75,6 +78,9 @@
 		4F3FFF732123B80C002D6BDC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4F5047B4212146960038C55E /* BRIDGE-Driver.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "BRIDGE-Driver.entitlements"; sourceTree = "<group>"; };
 		4F73376A2112302C00DD005E /* MapsNavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapsNavViewController.swift; sourceTree = "<group>"; };
+		4FC89D62212E45000002880A /* RideHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideHistoryViewController.swift; sourceTree = "<group>"; };
+		4FC89D63212E45000002880A /* RideDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideDetailsViewController.swift; sourceTree = "<group>"; };
+		4FC89D64212E45000002880A /* RideHistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideHistoryTableViewCell.swift; sourceTree = "<group>"; };
 		4FDA5B802124A82600BDA5D0 /* Montserrat-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
 		4FDA5B812124A82700BDA5D0 /* Montserrat-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ExtraLight.ttf"; sourceTree = "<group>"; };
 		4FDA5B822124A82800BDA5D0 /* Montserrat-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ThinItalic.ttf"; sourceTree = "<group>"; };
@@ -149,6 +155,7 @@
 				4F121941210F8B3400BE0BD4 /* WelcomeViewController.swift */,
 				4F121960210FE1FA00BE0BD4 /* Driver */,
 				4F1F0D2A2110F7C300DC38D7 /* Account */,
+				4FC89D68212E451A0002880A /* Drive History */,
 				4F12192E210F7B0100BE0BD4 /* Main.storyboard */,
 				4F121934210F7B0400BE0BD4 /* Assets.xcassets */,
 				4F121936210F7B0400BE0BD4 /* LaunchScreen.storyboard */,
@@ -201,6 +208,16 @@
 				4F1B30082110CDFE004EF617 /* AccountViewController.swift */,
 			);
 			path = Account;
+			sourceTree = "<group>";
+		};
+		4FC89D68212E451A0002880A /* Drive History */ = {
+			isa = PBXGroup;
+			children = (
+				4FC89D64212E45000002880A /* RideHistoryTableViewCell.swift */,
+				4FC89D62212E45000002880A /* RideHistoryViewController.swift */,
+				4FC89D63212E45000002880A /* RideDetailsViewController.swift */,
+			);
+			path = "Drive History";
 			sourceTree = "<group>";
 		};
 		4FDA5BA42124A88000BDA5D0 /* Resources */ = {
@@ -406,6 +423,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FC89D67212E45000002880A /* RideHistoryTableViewCell.swift in Sources */,
 				4F121945210F8B3400BE0BD4 /* WelcomeViewController.swift in Sources */,
 				4F73376B2112302C00DD005E /* MapsNavViewController.swift in Sources */,
 				4F12194E210FA3B000BE0BD4 /* ConnectionErrorViewController.swift in Sources */,
@@ -418,9 +436,11 @@
 				4F121950210FA3B000BE0BD4 /* ConnectionCheckerViewController.swift in Sources */,
 				4F12195D210FE1B900BE0BD4 /* DriverViewController.swift in Sources */,
 				4F121946210F8B3400BE0BD4 /* ViewController.swift in Sources */,
+				4FC89D66212E45000002880A /* RideDetailsViewController.swift in Sources */,
 				4F12192B210F7B0100BE0BD4 /* AppDelegate.swift in Sources */,
 				4FF938E7211EC88600C55AFE /* DestMapsNavViewController.swift in Sources */,
 				4F121959210FB7CE00BE0BD4 /* Initialization.swift in Sources */,
+				4FC89D65212E45000002880A /* RideHistoryViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

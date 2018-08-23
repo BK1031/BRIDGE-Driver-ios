@@ -52,3 +52,5 @@ var destination = ""
 var rideDone = false
 
 var schoolsList = ["BASIS Independent Silicon Valley", "Bellarmine College Preparatory", "Harker’s Upper School", "Valley Christian High School"]
+
+var selectedRide = ""

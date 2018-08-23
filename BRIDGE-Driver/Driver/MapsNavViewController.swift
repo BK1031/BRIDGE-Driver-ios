@@ -31,7 +31,7 @@ class MapsNavViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.allowsBackgroundLocationUpdates = true
         
         let requestRef = ref?.child("acceptedRides").child(myRiderID)
-        let values = ["riderName": myRiderName, "riderLat": 0.0, "riderLong": 0.0, "driverID": userID, "driverLat": 0.0, "driverLong": 0.0, "driverArrived": false, "pickedUp": false, "dest": destination] as [String : Any]
+        let values = ["riderName": myRiderName, "riderLat": 0.0, "riderLong": 0.0, "driverID": userID, "driverName": name, "driverLat": 0.0, "driverLong": 0.0, "driverArrived": false, "pickedUp": false, "dest": destination] as [String : Any]
         requestRef?.updateChildValues(values)
         
         let riderCoordinates = CLLocationCoordinate2D(latitude: myRiderLat, longitude: myRiderLong)
