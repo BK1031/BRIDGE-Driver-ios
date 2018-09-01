@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "BAE6A2FFAFDC2DE464C666B35825642C"
+               BlueprintIdentifier = "956BBC44F9CAB716B7623B502F409D29"
                BlueprintName = "Pods-BRIDGE-Driver"
                ReferencedContainer = "container:Pods.xcodeproj"
                BuildableName = "Pods-BRIDGE-Driver.framework">

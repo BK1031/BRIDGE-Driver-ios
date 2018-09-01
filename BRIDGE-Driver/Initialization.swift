@@ -43,6 +43,10 @@ var myRiderDestLong = 0.0
 var startTime = ""
 var midTime = ""
 var endTime = ""
+var startLat = 0.0
+var startLong = 0.0
+var endLat = 0.0
+var endLong = 0.0
 
 var school = ""
 var schoolLat = 0.0

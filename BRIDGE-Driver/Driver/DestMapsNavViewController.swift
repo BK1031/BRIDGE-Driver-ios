@@ -86,6 +86,9 @@ class DestMapsNavViewController: UIViewController, CLLocationManagerDelegate, MK
         formatter.pmSymbol = "PM"
         endTime = formatter.string(from: now)
         
+        endLat = (self.locationManager.location?.coordinate.latitude)!
+        endLong = (self.locationManager.location?.coordinate.longitude)!
+        
         locationManager.stopMonitoring(for: geoFenceRegion)
         
         self.performSegue(withIdentifier: "rideDone", sender: self)

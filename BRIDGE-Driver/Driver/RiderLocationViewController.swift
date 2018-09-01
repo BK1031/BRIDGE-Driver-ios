@@ -122,6 +122,9 @@ class RiderLocationViewController: UIViewController, CLLocationManagerDelegate {
         let values = ["pickedUp": true] as [String : Any]
         requestRef?.updateChildValues(values)
         //Save time info
+        startLat = (self.locationManager.location?.coordinate.latitude)!
+        startLong = (self.locationManager.location?.coordinate.longitude)!
+        
         let now = Date()
         let formatter = DateFormatter()
         formatter.timeZone = TimeZone.current
