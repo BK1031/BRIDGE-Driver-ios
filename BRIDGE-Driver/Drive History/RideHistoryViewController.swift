@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import FirebaseDatabase
 
 class RideHistoryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -16,16 +17,18 @@ class RideHistoryViewController: UIViewController, UITableViewDelegate, UITableV
     var ref:DatabaseReference?
     var databaseHandle:DatabaseHandle?
     
-    var riderIDList = [String]()
-    var riderNameList = [String]()
+    var driverIDList = [String]()
+    var rideIDList = [String]()
+    var driverNameList = [String]()
     var dateList = [String]()
     var destinationList = [String]()
     var timeList = [String]()
     
-    var riderID = ""
+    var rideID = ""
+    var driverID = ""
     var date = ""
     var destination = ""
-    var riderName = ""
+    var driverName = ""
     var time = ""
     
     override func viewDidLoad() {
@@ -35,34 +38,38 @@ class RideHistoryViewController: UIViewController, UITableViewDelegate, UITableV
         tableView.delegate = self
         tableView.dataSource = self
         
-        databaseHandle = ref?.child("drivers").child(userID).child("history").observe(.value, with: { (snapshot) in
+        databaseHandle = ref?.child("users").child(userID).child("history").observe(.value, with: { (snapshot) in
             if snapshot.childrenCount > 0 {
-                self.riderIDList.removeAll()
-                self.riderNameList.removeAll()
+                self.driverIDList.removeAll()
+                self.driverNameList.removeAll()
+                self.rideIDList.removeAll()
                 self.dateList.removeAll()
                 self.destinationList.removeAll()
                 self.timeList.removeAll()
                 
                 for ride in snapshot.children.allObjects as! [DataSnapshot] {
+                    self.rideID = ride.key as String
                     let history = ride.value as? [String: AnyObject]
-                    self.riderID = history!["riderID"] as! String
-                    self.riderName = history!["riderName"] as! String
+                    self.driverID = history!["driverID"] as! String
+                    self.driverName = history!["driverName"] as! String
                     self.date = history!["date"] as! String
                     self.destination = history!["dest"] as! String
                     self.time = history!["endTime"] as! String
                     
-                    self.riderIDList.append(self.riderID)
+                    self.rideIDList.append(self.rideID)
+                    self.driverIDList.append(self.driverID)
                     self.dateList.append(self.date)
-                    self.riderNameList.append(self.riderName)
+                    self.driverNameList.append(self.driverName)
                     self.destinationList.append(self.destination)
                     self.timeList.append(self.time)
                 }
                 self.tableView.reloadData()
             }
             else {
-                self.riderIDList.removeAll()
+                self.driverIDList.removeAll()
                 self.dateList.removeAll()
-                self.riderNameList.removeAll()
+                self.driverNameList.removeAll()
+                self.rideIDList.removeAll()
                 self.destinationList.removeAll()
                 self.timeList.removeAll()
                 self.tableView.reloadData()
@@ -72,7 +79,7 @@ class RideHistoryViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return riderIDList.count
+        return driverIDList.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -84,19 +91,14 @@ class RideHistoryViewController: UIViewController, UITableViewDelegate, UITableV
         
         cell.profilePic.image = #imageLiteral(resourceName: "profile")
         cell.profilePic.layer.cornerRadius = cell.profilePic.frame.height / 2
-        cell.driverName.text = riderNameList[indexPath.row]
+        cell.driverName.text = driverNameList[indexPath.row]
         cell.rideDate.text = "\(dateList[indexPath.row]), \(timeList[indexPath.row])"
         cell.rideDest.text = destinationList[indexPath.row]
-        cell.accessoryType = .disclosureIndicator
         return cell
     }
     
-    func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
-        self.tableView.reloadData()
-    }
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedRide = riderIDList[indexPath.row]
+        selectedRide = rideIDList[indexPath.row]
         
         performSegue(withIdentifier: "rideDetails", sender: self)
     }

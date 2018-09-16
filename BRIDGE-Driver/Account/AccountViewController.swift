@@ -37,20 +37,22 @@ class AccountViewController: UIViewController {
         accountBalanceLabel.text = "$\(accountBalance)"
         profileImageView.image = profilePic
         profileImageView.layer.cornerRadius = (profileImageView.frame.height) / 2
+        driverStatusLabel.text = driverStatus
         if driverStatus == "Verified" {
             driverStatusLabel.textColor = UIColor.green
-            driverStatusLabel.text = driverStatus
         }
         else if driverStatus == "Pending" {
-            driverStatusLabel.textColor = UIColor.orange
-            driverStatusLabel.text = driverStatus
+            driverStatusLabel.textColor = #colorLiteral(red: 1, green: 0.8365259171, blue: 0.2895659804, alpha: 1)
         }
         else {
             driverStatusLabel.textColor = UIColor.red
-            driverStatusLabel.text = "Not Registered"
         }
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        profileImageView.image = profilePic
+        profileImageView.layer.cornerRadius = (profileImageView.frame.height) / 2
+    }
 
     @IBAction func doneButton(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)

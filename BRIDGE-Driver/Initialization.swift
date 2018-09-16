@@ -19,7 +19,7 @@ var phone = ""
 var userID = ""
 var isStudent = false
 var profilePic: UIImage = #imageLiteral(resourceName: "profile")
-var driverStatus = ""
+var driverStatus = "Not Verified"
 var kidName = ""
 
 var addressLine1 = ""

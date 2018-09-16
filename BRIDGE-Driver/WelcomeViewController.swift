@@ -53,11 +53,15 @@ class WelcomeViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     var ref:DatabaseReference?
     var databaseHandle:DatabaseHandle?
     
+    var storeRef:StorageReference?
+    var store:StorageHandle?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
         //Firebase Database Reference Setup
         ref = Database.database().reference()
+        storeRef = Storage.storage().reference()
         
         getStartedButton.layer.cornerRadius = 10
         registrationView.layer.cornerRadius = 10
@@ -206,8 +210,18 @@ class WelcomeViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
                 if let user = user {
                     userID = user.uid
                 }
+                
+                let imageData: Data = UIImageJPEGRepresentation(profilePic, 1.0)!
+                let usersProfileRef = self.storeRef?.child("images").child("profiles")
+                let uploadUserProfileTask = usersProfileRef?.child("\(userID).png").putData(imageData, metadata: nil) { (metadata, errro) in
+                    guard let metadata = metadata else {
+                        print("Error occurred")
+                        return
+                    }
+                }
+                
                 let usersReference = self.ref?.child("drivers").child(userID)
-                let values = ["name": name, "email": email, "address": addressFull, "accountBalance": accountBalance, "phone": phone, "school": school, "homeLat": homeLat, "homeLong": homeLong] as [String : Any]
+                let values = ["name": name, "email": email, "address": addressFull, "accountBalance": accountBalance, "phone": phone, "school": school, "homeLat": homeLat, "homeLong": homeLong, "driverStatus": driverStatus] as [String : Any]
                 usersReference?.updateChildValues(values)
                 
                 self.performSegue(withIdentifier: "getStarted", sender: self)
@@ -251,6 +265,13 @@ class WelcomeViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
                     email = user.email!
                 }
                 
+                let usersProfileRef = self.storeRef?.child("images").child("profiles").child("\(userID).png")
+                let downloadUserProfileTask = usersProfileRef?.getData(maxSize: 20 * 1024 * 1024, completion: { (data, error) in
+                    if let data = data {
+                        profilePic = UIImage(data: data)!
+                    }
+                })
+                
                 //Extract User Info form Firebase Here
                 Database.database().reference().child("drivers").child(userID).observeSingleEvent(of: .value, with: { (snapshot) in
                     if let userData = snapshot.value as? [String: AnyObject] {
@@ -260,6 +281,7 @@ class WelcomeViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
                         homeLat = userData["homeLat"] as! Double
                         homeLong = userData["homeLong"] as! Double
                         accountBalance = userData["accountBalance"] as! Double
+                        driverStatus = userData["driverStatus"] as! String
                     }
                 })
                 self.performSegue(withIdentifier: "getStarted", sender: self)

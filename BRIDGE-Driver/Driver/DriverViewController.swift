@@ -8,6 +8,8 @@
 
 import UIKit
 import Firebase
+import FirebaseDatabase
+import FirebaseStorage
 import GoogleMaps
 import CoreLocation
 
@@ -21,6 +23,9 @@ class DriverViewController: UIViewController, CLLocationManagerDelegate, UITable
     
     var ref:DatabaseReference?
     var databaseHandle:DatabaseHandle?
+    
+    var storeRef:StorageReference?
+    var store:StorageHandle?
     
     var riderID = ""
     var riderName = ""
@@ -53,6 +58,7 @@ class DriverViewController: UIViewController, CLLocationManagerDelegate, UITable
         locationManager.startUpdatingLocation()
         
         ref = Database.database().reference()
+        storeRef = Storage.storage().reference()
         
         mapView.isMyLocationEnabled = true
         
@@ -125,12 +131,15 @@ class DriverViewController: UIViewController, CLLocationManagerDelegate, UITable
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "customCell") as! RideRequestsTableViewCell
         
+        let usersProfileRef = self.storeRef?.child("images").child("profiles").child("\(riderIDs[indexPath.row]).png")
+        let downloadUserProfileTask = usersProfileRef?.getData(maxSize: 20 * 1024 * 1024, completion: { (data, error) in
+            if let data = data {
+                cell.riderPic.image = UIImage(data: data)!
+            }
+        })
         cell.cellView.layer.cornerRadius = cell.cellView.frame.height / 2
-        
         cell.riderName.text = rideRequests[indexPath.row]
-        
         cell.riderLocation.text = rideDests[indexPath.row]
-        
         cell.riderPic.layer.cornerRadius = cell.riderPic.frame.height / 2
         
         return cell

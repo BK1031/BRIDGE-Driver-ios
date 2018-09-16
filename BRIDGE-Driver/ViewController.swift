@@ -15,6 +15,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     @IBOutlet weak var requestButton: UIButton!
     @IBOutlet weak var mapView: GMSMapView!
+    @IBOutlet weak var profileButton: UIButton!
     
     let locationManager = CLLocationManager()
     
@@ -33,6 +34,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.delegate = self
         locationManager.requestAlwaysAuthorization()
         locationManager.startUpdatingLocation()
+        
+        profileButton.setImage(profilePic, for: .normal)
+        profileButton.imageView?.layer.cornerRadius = (profileButton.imageView?.frame.height)! / 2
         
         mapView.isMyLocationEnabled = true
         mapView.settings.myLocationButton = true
@@ -84,27 +88,24 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             self.present(alert, animated: true, completion: nil)
         }
         
-        ref?.child("stableVersion").observeSingleEvent(of: .value, with: { (snapshot) in
+        ref?.child("stableVersion").observe(.value, with: { (snapshot) in
             if let stableVersion = snapshot.value as? Double {
                 if appVersion < stableVersion {
-                    let alert = UIAlertController(title: "Outdated App", message: "It looks like you are using an outdated version of the BRIDGE Driver App. Please update to the latest version to avoid any bugs or crashes.", preferredStyle: .alert)
-                    let action = UIAlertAction(title: "Got it", style: .default, handler: { (action) in
-                        exit(1)
-                    })
-                    alert.addAction(action)
-                    self.present(alert, animated: true, completion: nil)
+                    self.performSegue(withIdentifier: "outdatedAlert", sender: self)
                 }
                 else if appVersion > stableVersion {
-                    let alert = UIAlertController(title: "BRIDGE Canary Detected", message: "It looks like you are using the BRIDGE Canary release of our Driver app. Note that this version should only be used for approved beta testing and not for everyday use.", preferredStyle: .alert)
-                    let action = UIAlertAction(title: "Got it", style: .default, handler: { (action) in
-                        //Don't do anything boi
-                    })
-                    alert.addAction(action)
-                    self.present(alert, animated: true, completion: nil)
+                    self.performSegue(withIdentifier: "betaAlert", sender: self)
                 }
             }
         })
+        
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        profileButton.setImage(profilePic, for: .normal)
+        profileButton.imageView?.layer.cornerRadius = (profileButton.imageView?.frame.height)! / 2
+    }
+
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let location = locations[0]
@@ -118,7 +119,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     @IBAction func drive(_ sender: Any) {
-        self.performSegue(withIdentifier: "drive", sender: self)
+        if driverStatus != "Verified" {
+            self.performSegue(withIdentifier: "notVerified", sender: self)
+        }
+        else {
+            self.performSegue(withIdentifier: "drive", sender: self)
+        }
     }
     
 }

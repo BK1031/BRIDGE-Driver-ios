@@ -18,6 +18,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
 
     var window: UIWindow?
     let gcmMessageIDKey = "gcm.message_id"
+    
+    var ref:DatabaseReference?
+    var databaseHandle:DatabaseHandle?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -39,6 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
         }
         
         application.registerForRemoteNotifications()
+        UINavigationBar.appearance().tintColor = #colorLiteral(red: 0.9960784314, green: 0.8365689516, blue: 0.2848113179, alpha: 1)
         return true
     }
 
