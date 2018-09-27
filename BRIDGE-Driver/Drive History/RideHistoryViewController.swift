@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import FirebaseDatabase
+import FirebaseStorage
 
 class RideHistoryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -17,31 +18,35 @@ class RideHistoryViewController: UIViewController, UITableViewDelegate, UITableV
     var ref:DatabaseReference?
     var databaseHandle:DatabaseHandle?
     
-    var driverIDList = [String]()
+    var storeRef:StorageReference?
+    var store:StorageHandle?
+    
+    var riderIDList = [String]()
     var rideIDList = [String]()
-    var driverNameList = [String]()
+    var riderNameList = [String]()
     var dateList = [String]()
     var destinationList = [String]()
     var timeList = [String]()
     
     var rideID = ""
-    var driverID = ""
+    var riderID = ""
     var date = ""
     var destination = ""
-    var driverName = ""
+    var riderName = ""
     var time = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         ref = Database.database().reference()
+        storeRef = Storage.storage().reference()
         
         tableView.delegate = self
         tableView.dataSource = self
         
-        databaseHandle = ref?.child("users").child(userID).child("history").observe(.value, with: { (snapshot) in
+        databaseHandle = ref?.child("drivers").child(userID).child("history").observe(.value, with: { (snapshot) in
             if snapshot.childrenCount > 0 {
-                self.driverIDList.removeAll()
-                self.driverNameList.removeAll()
+                self.riderIDList.removeAll()
+                self.riderNameList.removeAll()
                 self.rideIDList.removeAll()
                 self.dateList.removeAll()
                 self.destinationList.removeAll()
@@ -50,25 +55,25 @@ class RideHistoryViewController: UIViewController, UITableViewDelegate, UITableV
                 for ride in snapshot.children.allObjects as! [DataSnapshot] {
                     self.rideID = ride.key as String
                     let history = ride.value as? [String: AnyObject]
-                    self.driverID = history!["driverID"] as! String
-                    self.driverName = history!["driverName"] as! String
+                    self.riderID = history!["riderID"] as! String
+                    self.riderName = history!["riderName"] as! String
                     self.date = history!["date"] as! String
                     self.destination = history!["dest"] as! String
                     self.time = history!["endTime"] as! String
                     
                     self.rideIDList.append(self.rideID)
-                    self.driverIDList.append(self.driverID)
+                    self.riderIDList.append(self.riderID)
                     self.dateList.append(self.date)
-                    self.driverNameList.append(self.driverName)
+                    self.riderNameList.append(self.riderName)
                     self.destinationList.append(self.destination)
                     self.timeList.append(self.time)
                 }
                 self.tableView.reloadData()
             }
             else {
-                self.driverIDList.removeAll()
+                self.riderIDList.removeAll()
                 self.dateList.removeAll()
-                self.driverNameList.removeAll()
+                self.riderNameList.removeAll()
                 self.rideIDList.removeAll()
                 self.destinationList.removeAll()
                 self.timeList.removeAll()
@@ -79,7 +84,7 @@ class RideHistoryViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return driverIDList.count
+        return riderIDList.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -89,9 +94,16 @@ class RideHistoryViewController: UIViewController, UITableViewDelegate, UITableV
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "rideHistory") as! RideHistoryTableViewCell
         
-        cell.profilePic.image = #imageLiteral(resourceName: "profile")
         cell.profilePic.layer.cornerRadius = cell.profilePic.frame.height / 2
-        cell.driverName.text = driverNameList[indexPath.row]
+        
+        let usersProfileRef = self.storeRef?.child("images").child("profiles").child("\(riderIDList[indexPath.row]).png")
+        let downloadUserProfileTask = usersProfileRef?.getData(maxSize: 20 * 1024 * 1024, completion: { (data, error) in
+            if let data = data {
+                cell.profilePic.image = UIImage(data: data)!
+            }
+        })
+        
+        cell.driverName.text = riderNameList[indexPath.row]
         cell.rideDate.text = "\(dateList[indexPath.row]), \(timeList[indexPath.row])"
         cell.rideDest.text = destinationList[indexPath.row]
         return cell

@@ -15,5 +15,5 @@ target 'BRIDGE-Driver' do
   pod 'Firebase/Storage'
   pod 'Firebase/Database'
   pod 'Firebase/Messaging'
-  pod 'MaterialComponents'
+  pod 'paper-onboarding'
 end

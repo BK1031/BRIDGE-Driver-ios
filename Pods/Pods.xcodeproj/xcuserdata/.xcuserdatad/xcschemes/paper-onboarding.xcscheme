@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "95A2E23B3FC52B8213973CCC38D940D0"
-               BlueprintName = "Pods-BRIDGE-Driver"
+               BlueprintIdentifier = "738B2050D3EE6CEF2F8FC5020EAB44A1"
+               BlueprintName = "paper-onboarding"
                ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "Pods-BRIDGE-Driver.framework">
+               BuildableName = "paper-onboarding.framework">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
