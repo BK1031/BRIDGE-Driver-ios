@@ -22,6 +22,8 @@ var profilePic: UIImage = #imageLiteral(resourceName: "profile")
 var driverStatus = "Not Verified"
 var kidName = ""
 
+var mapsPref = "default"
+
 var addressLine1 = ""
 var addressCity = ""
 var addressState = ""

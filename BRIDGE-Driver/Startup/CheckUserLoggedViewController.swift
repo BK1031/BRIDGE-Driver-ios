@@ -55,6 +55,7 @@ class CheckUserLoggedViewController: UIViewController {
                                 accountBalance = userData["accountBalance"] as! Double
                                 addressFull = userData["address"] as! String
                                 driverStatus = userData["driverStatus"] as! String
+                                mapsPref = userData["mapsPref"] as! String
                             }
                         })
                         

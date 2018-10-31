@@ -221,7 +221,7 @@ class WelcomeViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
                 }
                 
                 let usersReference = self.ref?.child("drivers").child(userID)
-                let values = ["name": name, "email": email, "address": addressFull, "accountBalance": accountBalance, "phone": phone, "school": school, "homeLat": homeLat, "homeLong": homeLong, "driverStatus": driverStatus] as [String : Any]
+                let values = ["name": name, "email": email, "address": addressFull, "accountBalance": accountBalance, "phone": phone, "school": school, "homeLat": homeLat, "homeLong": homeLong, "driverStatus": driverStatus, "mapsPref": mapsPref] as [String : Any]
                 usersReference?.updateChildValues(values)
                 
                 self.performSegue(withIdentifier: "getStarted", sender: self)
@@ -282,6 +282,7 @@ class WelcomeViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
                         homeLong = userData["homeLong"] as! Double
                         accountBalance = userData["accountBalance"] as! Double
                         driverStatus = userData["driverStatus"] as! String
+                        mapsPref = userData["mapsPref"] as! String
                     }
                 })
                 self.performSegue(withIdentifier: "getStarted", sender: self)
