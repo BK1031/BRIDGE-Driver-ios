@@ -3,7 +3,8 @@ A homemade ride-sharing solution for schools to organize safer and more efficien
 
 BRIDGE is a company that bridges students and schools, by providing a trustworthy and reliable ride sharing service for students between their homes and schools. On top of this, BRIDGE develops educational fundraising initiatives by cooperating with schools and donating a part of our sales with them. Lastly, BRIDGE improves the current situation of traffic during morning and afternoon hours, creating a sustainable environment by reducing the number of vehicles on the road.
 
-This repository contains the canary version of the BRIDGE Driver app. This is not intended for public use. The most stable version of the BRIDGE Driver and Rider apps are on the App Store, and are recommended for regular use.
+### THIS VERSION HAS BEEN DISCONTINUED!
+#### Please refer to the new Bridge Driver Project [here](https://github.com/equinox-initiative/bridge-driver-flutter).
 
 Only fork and build this version if you are a part of the BRIDGE Canary Program, and have been instructed to do so. Instructions for properly building this repository are below. If you would like to learn how you can join the BRIDGE Canary Program, check if you are eligible [here](https://github.com/BK1031/BRIDGE-Driver-ios/blob/master/CANARY.md).
 
